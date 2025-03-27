@@ -1,0 +1,89 @@
+{
+  "navigation": {
+    "moneyMakingSites": "Geldverdienende Websites",
+    "platformSubsites": "Plattform-Unterwebsites",
+    "categorySites": "Kategorie-Websites",
+    "infoSites": "Info-Websites",
+    "about": "Über uns"
+  },
+  "common": {
+    "updatedOn": "Aktualisiert am",
+    "downloadCSV": "Als CSV herunterladen",
+    "downloadPDF": "Als PDF herunterladen",
+    "searchPlaceholder": "Suchen...",
+    "filterBy": "Filtern nach",
+    "showingResults": "Zeige {start}-{end} von {total} Ergebnissen",
+    "viewAll": "Alle anzeigen",
+    "topSites": "Top Websites",
+    "newSites": "Neue Websites",
+    "trendingSites": "Trending Websites",
+    "monthlyTraffic": "Monatlicher Traffic",
+    "trafficChange": "Traffic-Änderung",
+    "rank": "Rang",
+    "createdOn": "Erstellt am",
+    "visitDuration": "Besuchsdauer",
+    "loading": "Laden...",
+    "error": "Fehler beim Laden der Daten",
+    "noData": "Keine Daten verfügbar"
+  },
+  "home": {
+    "title": "Entdecken Sie hochfrequentierte Websites",
+    "subtitle": "Erkunden Sie profitable Websites in verschiedenen Kategorien und Plattformen",
+    "recentUpdates": "Neueste Aktualisierungen",
+    "exploreSections": "Kategorien erkunden"
+  },
+  "moneyMakingSites": {
+    "title": "Geldverdienende Websites",
+    "description": "Entdecken Sie hochfrequentierte Websites in Zahlungsplattformen wie PayPal und Stripe",
+    "dataSource": "Datenquelle: Similarweb",
+    "updateFrequency": "Monatlich aktualisiert",
+    "paypal": "PayPal",
+    "stripe": "Stripe"
+  },
+  "platformSubsites": {
+    "title": "Plattform-Unterwebsites",
+    "description": "Erkunden Sie neue und trendende Websites auf Plattformen wie .vercel.app und .github.io",
+    "selectPlatform": "Plattform auswählen"
+  },
+  "categorySites": {
+    "title": "Kategorie-Websites",
+    "description": "Finden Sie Top-Websites in den Kategorien Gaming und Tools",
+    "games": "Spiele",
+    "tools": "Tools"
+  },
+  "infoSites": {
+    "title": "Info-Websites",
+    "description": "Bleiben Sie über Trends von Product Hunt, GitHub und mehr informiert",
+    "productHunt": "Product Hunt",
+    "github": "GitHub",
+    "huggingFace": "Hugging Face",
+    "googleTrends": "Google Trends"
+  },
+  "about": {
+    "title": "Über dieses Projekt",
+    "description": "Diese Website bietet Analysen und Rankings für verschiedene Arten von Websites, um Ihnen zu helfen, Trends und Chancen zu entdecken."
+  },
+  "footer": {
+    "aboutUs": "Über uns",
+    "aboutDescription": "Wir bieten Einblicke in hochfrequentierte Websites und Online-Geschäftsmöglichkeiten",
+    "quickLinks": "Schnelllinks",
+    "moneyMaking": "Geldverdienende Websites",
+    "platforms": "Plattform-Unterwebsites",
+    "categories": "Kategorie-Websites",
+    "info": "Info-Websites",
+    "resources": "Ressourcen",
+    "blog": "Blog",
+    "api": "API",
+    "documentation": "Dokumentation",
+    "contact": "Kontakt",
+    "email": "E-Mail",
+    "social": "Soziale Medien",
+    "twitter": "Twitter",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "legal": "Rechtliches",
+    "privacy": "Datenschutzerklärung",
+    "terms": "Nutzungsbedingungen",
+    "cookies": "Cookie-Richtlinie"
+  }
+} 

@@ -1,0 +1,89 @@
+{
+  "navigation": {
+    "moneyMakingSites": "Top Paid Sites",
+    "platformSubsites": "Top Platform Subs",
+    "categorySites": "Industry Leaders",
+    "infoSites": "Income Trends"
+  },
+  "common": {
+    "updatedOn": "Updated on",
+    "downloadCSV": "Download as CSV",
+    "downloadPDF": "Download as PDF",
+    "searchPlaceholder": "Search...",
+    "filterBy": "Filter by",
+    "showingResults": "Showing {start}-{end} of {total} results",
+    "viewAll": "View All",
+    "topSites": "Top Sites",
+    "newSites": "New Sites",
+    "trendingSites": "Trending Sites",
+    "monthlyTraffic": "Monthly Traffic",
+    "trafficChange": "Traffic Change",
+    "rank": "Rank",
+    "createdOn": "Created on",
+    "visitDuration": "Visit Duration",
+    "loading": "Loading...",
+    "error": "Error loading data",
+    "noData": "No data available"
+  },
+  "home": {
+    "title": "Discover High-Traffic Websites",
+    "subtitle": "Explore profitable websites across different categories and platforms",
+    "recentUpdates": "Recent Updates",
+    "exploreSections": "Explore Sections"
+  },
+  "moneyMakingSites": {
+    "loading": "Loading...",
+    "title": "Money Making Sites",
+    "description": "Discover high-traffic websites in payment platforms like PayPal and Stripe",
+    "dataSource": "Data source: Similarweb",
+    "updateFrequency": "Updated monthly",
+    "paypal": "PayPal",
+    "stripe": "Stripe",
+    "updatedOn": "Updated on"
+  },
+  "platformSubsites": {
+    "title": "Platform Subsites",
+    "description": "Explore new and trending websites on platforms like .vercel.app and .github.io",
+    "selectPlatform": "Select Platform"
+  },
+  "categorySites": {
+    "title": "Category Sites",
+    "description": "Find top performing websites in gaming and tools categories",
+    "games": "Games",
+    "tools": "Tools"
+  },
+  "infoSites": {
+    "title": "Info Sites",
+    "description": "Stay updated with trends from Product Hunt, GitHub, and more",
+    "productHunt": "Product Hunt",
+    "github": "GitHub",
+    "huggingFace": "Hugging Face",
+    "googleTrends": "Google Trends"
+  },
+  "about": {
+    "title": "About This Project",
+    "description": "This website provides analytics and rankings for various types of websites to help you discover trends and opportunities."
+  },
+  "footer": {
+    "aboutDescription": "We provide insights into high-traffic websites and online business opportunities",
+    "quickLinks": "Quick Links",
+    "moneyMaking": "Top Paid Sites",
+    "platforms": "Top Platform Subs",
+    "categories": "Industry Leaders",
+    "info": "Income Trends",
+    "resources": "Resources",
+    "blog": "Blog",
+    "api": "API",
+    "documentation": "Documentation",
+    "contact": "Contact",
+    "email": "Email",
+    "social": "Social Media",
+    "twitter": "Twitter",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookies": "Cookie Policy"
+  }
+} 

@@ -1,0 +1,89 @@
+{
+  "navigation": {
+    "moneyMakingSites": "赚钱类网站",
+    "platformSubsites": "平台子站",
+    "categorySites": "类别站",
+    "infoSites": "资讯类",
+    "about": "关于我们"
+  },
+  "common": {
+    "updatedOn": "更新于",
+    "downloadCSV": "下载为CSV",
+    "downloadPDF": "下载为PDF",
+    "searchPlaceholder": "搜索...",
+    "filterBy": "筛选条件",
+    "showingResults": "显示 {start}-{end}，共 {total} 条结果",
+    "viewAll": "查看全部",
+    "topSites": "热门网站",
+    "newSites": "新增网站",
+    "trendingSites": "趋势网站",
+    "monthlyTraffic": "月访问量",
+    "trafficChange": "流量变化",
+    "rank": "排名",
+    "createdOn": "创建于",
+    "visitDuration": "访问时长",
+    "loading": "加载中...",
+    "error": "加载数据时出错",
+    "noData": "暂无数据"
+  },
+  "home": {
+    "title": "发现高流量网站",
+    "subtitle": "探索不同类别和平台的盈利网站",
+    "recentUpdates": "最新更新",
+    "exploreSections": "探索分类"
+  },
+  "moneyMakingSites": {
+    "title": "赚钱类网站",
+    "description": "发现 PayPal 和 Stripe 等支付平台中的高流量网站",
+    "dataSource": "数据来源：Similarweb",
+    "updateFrequency": "每月更新",
+    "paypal": "PayPal",
+    "stripe": "Stripe"
+  },
+  "platformSubsites": {
+    "title": "平台子站",
+    "description": "探索 .vercel.app 和 .github.io 等平台上的新站和热门网站",
+    "selectPlatform": "选择平台"
+  },
+  "categorySites": {
+    "title": "类别站",
+    "description": "查找游戏和工具类别的顶级网站",
+    "games": "游戏",
+    "tools": "工具"
+  },
+  "infoSites": {
+    "title": "资讯类",
+    "description": "及时了解 Product Hunt、GitHub 等平台的趋势",
+    "productHunt": "Product Hunt",
+    "github": "GitHub",
+    "huggingFace": "Hugging Face",
+    "googleTrends": "Google趋势"
+  },
+  "about": {
+    "title": "关于本项目",
+    "description": "本网站提供各类网站的分析和排名，帮助您发现趋势和机会。"
+  },
+  "footer": {
+    "aboutUs": "关于我们",
+    "aboutDescription": "我们提供高流量网站和在线商业机会的洞察",
+    "quickLinks": "快速链接",
+    "moneyMaking": "赚钱类网站",
+    "platforms": "平台子站",
+    "categories": "类别站",
+    "info": "资讯类",
+    "resources": "资源",
+    "blog": "博客",
+    "api": "API",
+    "documentation": "文档",
+    "contact": "联系我们",
+    "email": "电子邮件",
+    "social": "社交媒体",
+    "twitter": "推特",
+    "github": "GitHub",
+    "linkedin": "领英",
+    "legal": "法律",
+    "privacy": "隐私政策",
+    "terms": "服务条款",
+    "cookies": "Cookie 政策"
+  }
+} 
