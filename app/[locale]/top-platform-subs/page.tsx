@@ -207,9 +207,117 @@ export default function Home() {
 
   if (loading) {
     return (
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex justify-center items-center h-64">
-          <div className="text-gray-500">Loading data...</div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h1 className="text-3xl font-bold mb-2">Platform Subdomains</h1>
+        <p className="text-gray-600 mb-6">Discover high-traffic subdomains across popular hosting platforms</p>
+
+        {/* 平台过滤器 */}
+        <div className="mb-6">
+          <div className="inline-flex border rounded-md overflow-hidden">
+            <button
+              className={`px-4 py-2 cursor-pointer hover:bg-blue-100 ${platform === "vercel.app" ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-white"}`}
+              onClick={() => {
+                setPlatform("vercel.app")
+                setViewMode("")
+                setSortField("clicks")
+                setSortDirection("desc")
+              }}
+            >
+              vercel.app
+            </button>
+            <button
+              className={`px-4 py-2 cursor-pointer hover:bg-blue-100 ${platform === "github.io" ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-white"}`}
+              onClick={() => {
+                setPlatform("github.io")
+                setViewMode("")
+                setSortField("clicks")
+                setSortDirection("desc")
+              }}
+            >
+              github.io
+            </button>
+            <button
+              className={`px-4 py-2 cursor-pointer hover:bg-blue-100 ${platform === "netlify.app" ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-white"}`}
+              onClick={() => {
+                setPlatform("netlify.app")
+                setViewMode("")
+                setSortField("clicks")
+                setSortDirection("desc")
+              }}
+            >
+              netlify.app
+            </button>
+            <button
+              className={`px-4 py-2 cursor-pointer hover:bg-blue-100 ${platform === "js.org" ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-white"}`}
+              onClick={() => {
+                setPlatform("js.org")
+                setViewMode("")
+                setSortField("clicks")
+                setSortDirection("desc")
+              }}
+            >
+              js.org
+            </button>
+          </div>
+        </div>
+
+        {/* 视图模式过滤器 */}
+        <div className="flex justify-end mb-6">
+          <div className="inline-flex border rounded-md overflow-hidden">
+            <button
+              className={`px-4 py-2 cursor-pointer hover:bg-blue-100 ${viewMode === "trending" ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-white"}`}
+              onClick={() => {
+                setViewMode("trending")
+                setSortField("clicks")
+                setSortDirection("desc")
+              }}
+            >
+              Trending
+            </button>
+            <button
+              className={`px-4 py-2 cursor-pointer hover:bg-blue-100 ${viewMode === "new" ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-white"}`}
+              onClick={() => {
+                setViewMode("new")
+                setSortField("clicks")
+                setSortDirection("desc")
+              }}
+            >
+              New Clicks
+            </button>
+          </div>
+        </div>
+
+        {/* Loading 状态的表格 */}
+        <div>
+          <table className="w-full bg-white border table-fixed">
+            <thead>
+              <tr className="bg-gray-100 border-b">
+                <th className="w-2/5 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">URL</th>
+                <th className="w-1/5 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <div className="flex items-center">
+                    Clicks
+                    <ChevronDown className="h-4 w-4 ml-1 opacity-50" />
+                  </div>
+                </th>
+                <th className="w-1/5 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <div className="flex items-center">
+                    Change
+                    <ChevronDown className="h-4 w-4 ml-1 opacity-50" />
+                  </div>
+                </th>
+                <th className="w-1/5 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Top Keyword</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colSpan={4} className="px-6 py-4">
+                  <div className="flex justify-center items-center h-32">
+                    <div className="text-gray-500">Loading data...</div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     )
@@ -224,10 +332,10 @@ export default function Home() {
       <div className="mb-6">
         <div className="inline-flex border rounded-md overflow-hidden">
           <button
-            className={`px-4 py-2 ${platform === "vercel.app" ? "bg-blue-500 text-white" : "bg-white"}`}
+            className={`px-4 py-2 cursor-pointer hover:bg-blue-100 ${platform === "vercel.app" ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-white"}`}
             onClick={() => {
               setPlatform("vercel.app")
-              setViewMode("") // 显示全部数据
+              setViewMode("")
               setSortField("clicks")
               setSortDirection("desc")
             }}
@@ -235,7 +343,7 @@ export default function Home() {
             vercel.app
           </button>
           <button
-            className={`px-4 py-2 ${platform === "github.io" ? "bg-blue-500 text-white" : "bg-white"}`}
+            className={`px-4 py-2 cursor-pointer hover:bg-blue-100 ${platform === "github.io" ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-white"}`}
             onClick={() => {
               setPlatform("github.io")
               setViewMode("")
@@ -246,7 +354,7 @@ export default function Home() {
             github.io
           </button>
           <button
-            className={`px-4 py-2 ${platform === "netlify.app" ? "bg-blue-500 text-white" : "bg-white"}`}
+            className={`px-4 py-2 cursor-pointer hover:bg-blue-100 ${platform === "netlify.app" ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-white"}`}
             onClick={() => {
               setPlatform("netlify.app")
               setViewMode("")
@@ -257,7 +365,7 @@ export default function Home() {
             netlify.app
           </button>
           <button
-            className={`px-4 py-2 ${platform === "js.org" ? "bg-blue-500 text-white" : "bg-white"}`}
+            className={`px-4 py-2 cursor-pointer hover:bg-blue-100 ${platform === "js.org" ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-white"}`}
             onClick={() => {
               setPlatform("js.org")
               setViewMode("")
@@ -274,22 +382,24 @@ export default function Home() {
       <div className="flex justify-end mb-6">
         <div className="inline-flex border rounded-md overflow-hidden">
           <button
-            className={`px-4 py-2 ${viewMode === "trending" ? "bg-blue-500 text-white" : "bg-white"}`}
+            className={`px-4 py-2 cursor-pointer hover:bg-blue-100 ${viewMode === "trending" ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-white"}`}
             onClick={() => {
               setViewMode("trending")
               setSortField("clicks")
               setSortDirection("desc")
             }}
+            title="Trending"
           >
             Trending
           </button>
           <button
-            className={`px-4 py-2 ${viewMode === "new" ? "bg-blue-500 text-white" : "bg-white"}`}
+            className={`px-4 py-2 cursor-pointer hover:bg-blue-100 ${viewMode === "new" ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-white"}`}
             onClick={() => {
               setViewMode("new")
               setSortField("clicks")
               setSortDirection("desc")
             }}
+            title="New Clicks"
           >
             New Clicks
           </button>
