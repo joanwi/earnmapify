@@ -51,7 +51,7 @@ export default function Navbar() {
   const routes = [
     { name: t('moneyMakingSites'), path: '/top-paid-sites'},
     { name: t('platformSubsites'), path: '/top-platform-subs' },
-    { name: t('categorySites'), path: '/category-sites' },
+    { name: t('categorySites'), path: '/industry-leaders' },
     { name: t('infoSites'), path: '/info-sites' },
   ];
 

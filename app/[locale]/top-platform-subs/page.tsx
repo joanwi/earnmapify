@@ -34,21 +34,21 @@ export default function Home() {
         setLoading(false)
       }
     }
-    
+
     fetchData()
   }, [])
 
-    // 格式化点击量
-    const formatClicks = (clicks: number | string | undefined) => {
-      if (clicks === undefined) return "0"
-      // 移除所有逗号并转换为数字
-      const numClicks = typeof clicks === 'number' 
-        ? clicks 
-        : parseInt(String(clicks || '0').replace(/,/g, ''))
-      if (numClicks >= 1000000) return (numClicks / 1000000).toFixed(1) + "M"
-      if (numClicks >= 1000) return (numClicks / 1000).toFixed(1) + "K"
-      return numClicks.toString()
-    }
+  // 格式化点击量
+  const formatClicks = (clicks: number | string | undefined) => {
+    if (clicks === undefined) return "0"
+    // 移除所有逗号并转换为数字
+    const numClicks = typeof clicks === 'number'
+      ? clicks
+      : parseInt(String(clicks || '0').replace(/,/g, ''))
+    if (numClicks >= 1000000) return (numClicks / 1000000).toFixed(1) + "M"
+    if (numClicks >= 1000) return (numClicks / 1000).toFixed(1) + "K"
+    return numClicks.toString()
+  }
 
   // 根据平台和视图模式过滤数据
   useEffect(() => {
@@ -93,11 +93,11 @@ export default function Home() {
       let valueA: number, valueB: number
 
       if (field === "clicks") {
-        valueA = typeof a.clicks === 'number' 
-          ? a.clicks 
+        valueA = typeof a.clicks === 'number'
+          ? a.clicks
           : parseInt(String(a.clicks || '0').replace(/,/g, ''))
-        valueB = typeof b.clicks === 'number' 
-          ? b.clicks 
+        valueB = typeof b.clicks === 'number'
+          ? b.clicks
           : parseInt(String(b.clicks || '0').replace(/,/g, ''))
       } else if (field === "change") {
         if ((a.change || '') === "New" && (b.change || '') === "New") return 0
@@ -142,19 +142,14 @@ export default function Home() {
     }
   }
 
-
   // 格式化流量占比
-  const formatTrafficShare = (trafficShare?: string) => {
-    if (!trafficShare) return "0.00%"
+  const formatTrafficShare = (trafficShare: string | undefined) => {
+    if (!trafficShare) return "0.00%";
     const value = Number.parseFloat(trafficShare.replace("%", ""))
-    return !isNaN(value) ? value.toFixed(2) + "%" : trafficShare
-  }
-
-  // 获取宽度百分比
-  const getWidthPercentage = (trafficShare?: string) => {
-    if (!trafficShare) return "0%"
-    const value = Number.parseFloat(trafficShare.replace("%", ""))
-    return !isNaN(value) ? `${value}%` : "0%"
+    if (!isNaN(value)) {
+      return value.toFixed(2) + "%"
+    }
+    return trafficShare
   }
 
   // 显示变化数据
@@ -439,16 +434,18 @@ export default function Home() {
                 <tr key={site._id} className="hover:bg-gray-50">
                   <td className="px-6 py-4 text-sm font-medium text-gray-900 truncate">{site.url}</td>
                   <td className="px-6 py-4">
+
                     <div className="flex items-center">
-                      <span className="text-sm font-medium mr-2">{formatClicks(site.clicks)}</span>
-                      <div className="w-16 bg-gray-200 rounded-full h-2.5">
-                        <div 
-                          className="bg-blue-600 h-2.5 rounded-full" 
-                          style={{ width: getWidthPercentage(site.trafficShare) }}
+                      <span className="mr-2 truncate">{formatClicks(site.clicks)}</span>
+                      <div className="w-16 bg-gray-200 rounded-full h-2.5 shrink-0">
+                        <div
+                          className="bg-blue-600 h-2.5 rounded-full"
+                          style={{ width: `${Math.min(parseFloat(site.trafficShare), 100)}%` }}
                         ></div>
                       </div>
-                      <span className="text-xs text-gray-500 ml-2">{formatTrafficShare(site.trafficShare)}</span>
+                      <span className="text-xs text-gray-500 ml-1 truncate">{formatTrafficShare(site.trafficShare)}</span>
                     </div>
+
                   </td>
                   <td className="px-6 py-4 text-sm">{getChangeDisplay(site.change)}</td>
                   <td className="px-6 py-4 text-sm text-blue-600 hover:text-blue-800 cursor-pointer group">
@@ -474,18 +471,16 @@ export default function Home() {
             <button
               onClick={() => goToPage(currentPage - 1)}
               disabled={currentPage === 1}
-              className={`relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium ${
-                currentPage === 1 ? "text-gray-300" : "text-gray-700 hover:bg-gray-50"
-              }`}
+              className={`relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium ${currentPage === 1 ? "text-gray-300" : "text-gray-700 hover:bg-gray-50"
+                }`}
             >
               Previous
             </button>
             <button
               onClick={() => goToPage(currentPage + 1)}
               disabled={currentPage === totalPages}
-              className={`relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium ${
-                currentPage === totalPages ? "text-gray-300" : "text-gray-700 hover:bg-gray-50"
-              }`}
+              className={`relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium ${currentPage === totalPages ? "text-gray-300" : "text-gray-700 hover:bg-gray-50"
+                }`}
             >
               Next
             </button>
@@ -503,9 +498,8 @@ export default function Home() {
                 <button
                   onClick={() => goToPage(currentPage - 1)}
                   disabled={currentPage === 1}
-                  className={`relative inline-flex items-center rounded-l-md px-2 py-2 ${
-                    currentPage === 1 ? "text-gray-300" : "text-gray-400 hover:bg-gray-50"
-                  }`}
+                  className={`relative inline-flex items-center rounded-l-md px-2 py-2 ${currentPage === 1 ? "text-gray-300" : "text-gray-400 hover:bg-gray-50"
+                    }`}
                 >
                   <span className="sr-only">Previous</span>
                   <ChevronLeft className="h-5 w-5" aria-hidden="true" />
@@ -525,11 +519,10 @@ export default function Home() {
                     <button
                       key={i}
                       onClick={() => goToPage(pageNum)}
-                      className={`relative inline-flex items-center px-4 py-2 text-sm font-semibold ${
-                        currentPage === pageNum
+                      className={`relative inline-flex items-center px-4 py-2 text-sm font-semibold ${currentPage === pageNum
                           ? "z-10 bg-blue-500 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                           : "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0"
-                      }`}
+                        }`}
                     >
                       {pageNum}
                     </button>
@@ -538,9 +531,8 @@ export default function Home() {
                 <button
                   onClick={() => goToPage(currentPage + 1)}
                   disabled={currentPage === totalPages}
-                  className={`relative inline-flex items-center rounded-r-md px-2 py-2 ${
-                    currentPage === totalPages ? "text-gray-300" : "text-gray-400 hover:bg-gray-50"
-                  }`}
+                  className={`relative inline-flex items-center rounded-r-md px-2 py-2 ${currentPage === totalPages ? "text-gray-300" : "text-gray-400 hover:bg-gray-50"
+                    }`}
                 >
                   <span className="sr-only">Next</span>
                   <ChevronRight className="h-5 w-5" aria-hidden="true" />

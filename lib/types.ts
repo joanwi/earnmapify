@@ -18,3 +18,16 @@ export interface PlatformSubs {
   change: string;
   topKeyword: string;
 }
+
+export interface IndustryLeader {
+  _id: string;
+  domain: string;
+  trafficShare: string;
+  momTrafficChange: string;
+  countryRank: number;
+  monthlyVisits: string;
+  uniqueVisitors: string;
+  desktopShare: string;
+  mobileShare: string;
+  industry: string;
+}
