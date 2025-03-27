@@ -1,4 +1,3 @@
-import type { PlatformSubs } from "@/lib/types"
 import PlatformSubsTable from "./components/PlatformSubsTable"
 import { getPlatformData } from "@/lib/data"
 

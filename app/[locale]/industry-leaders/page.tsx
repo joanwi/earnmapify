@@ -25,8 +25,7 @@ export default function Home() {
           throw new Error('Failed to fetch data')
         }
         const data = await response.json()
-        // 临时调试代码 - 仅用于开发环境
-      
+
         setIndustryLeaders(data)
       } catch (error) {
         console.error('Error fetching data:', error)
@@ -35,7 +34,6 @@ export default function Home() {
         setLoading(false)
       }
     }
-
     fetchData()
   }, [])
 
@@ -54,7 +52,7 @@ export default function Home() {
 
   // 数据过滤函数
   const filterData = (selectedIndustry: string) => {
-    let filtered = [...industryLeaders].filter((item) => item.industry === selectedIndustry)
+    const filtered = [...industryLeaders].filter((item) => item.industry === selectedIndustry)
 
     setFilteredData(filtered)
     setCurrentPage(1) // 重置到第一页
