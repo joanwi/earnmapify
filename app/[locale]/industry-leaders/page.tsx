@@ -26,14 +26,7 @@ export default function Home() {
         }
         const data = await response.json()
         // 临时调试代码 - 仅用于开发环境
-        if (process.env.NODE_ENV === 'development' && data.length > 0) {
-          console.log('Sample data:', {
-            monthlyVisits: data[0].monthlyVisits,
-            uniqueVisitors: data[0].uniqueVisitors,
-            monthlyType: typeof data[0].monthlyVisits,
-            uniqueType: typeof data[0].uniqueVisitors
-          })
-        }
+      
         setIndustryLeaders(data)
       } catch (error) {
         console.error('Error fetching data:', error)
