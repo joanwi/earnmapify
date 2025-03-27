@@ -40,7 +40,7 @@ export default function Home() {
   // 根据行业过滤数据
   useEffect(() => {
     filterData(industry)
-  }, [industry, industryLeaders])
+  }, [industry, industryLeaders,])
 
   // 根据分页和排序更新显示数据
   useEffect(() => {
@@ -74,7 +74,7 @@ export default function Home() {
       if (numTraffic >= 1000000) return (numTraffic / 1000000).toFixed(1) + "M"
       if (numTraffic >= 1000) return (numTraffic / 1000).toFixed(1) + "K"
       return numTraffic.toString()
-    } catch (error) {
+    } catch{
       return "0"
     }
   }

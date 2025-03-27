@@ -26,14 +26,14 @@ export default async function LocaleLayout({
   const locale = params.locale;
   
   // Validate that the incoming locale is supported
-  if (!locales.includes(locale as any)) {
+  if (!locales.includes(locale)) {
     notFound();
   }
 
   let messages;
   try {
     messages = (await import(`../../messages/${locale}.json`)).default;
-  } catch (error) {
+  } catch {
     notFound();
   }
 

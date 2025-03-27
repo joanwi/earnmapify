@@ -2,9 +2,7 @@ import createMiddleware from 'next-intl/middleware';
 import { locales, defaultLocale } from './app/i18n';
 
 export default createMiddleware({
-  // Default locale is English
   defaultLocale,
-  // Supported locales list
   locales,
   // Don't include a locale prefix for the default locale
   localePrefix: 'as-needed',
