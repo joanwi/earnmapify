@@ -9,7 +9,6 @@ interface IndustryLeadersTableProps {
 }
 
 export default function IndustryLeadersTable({ initialData }: IndustryLeadersTableProps) {
-  const [industryLeaders, setIndustryLeaders] = useState<IndustryLeader[]>(initialData)
   const [data, setData] = useState<IndustryLeader[]>([])
   const [industry, setIndustry] = useState<string>("games") // 默认行业为 games
   const [currentPage, setCurrentPage] = useState<number>(1)
@@ -21,7 +20,7 @@ export default function IndustryLeadersTable({ initialData }: IndustryLeadersTab
   // 根据行业过滤数据
   useEffect(() => {
     filterData(industry)
-  }, [industry, industryLeaders])
+  }, [industry, initialData])
 
   // 根据分页和排序更新显示数据
   useEffect(() => {
@@ -33,7 +32,7 @@ export default function IndustryLeadersTable({ initialData }: IndustryLeadersTab
 
   // 数据过滤函数
   const filterData = (selectedIndustry: string) => {
-    const filtered = [...industryLeaders].filter((item) => item.industry === selectedIndustry)
+    const filtered = [...initialData].filter((item) => item.industry === selectedIndustry)
     setFilteredData(filtered)
     setCurrentPage(1) // 重置到第一页
     setSortField("trafficShare")
