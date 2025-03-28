@@ -93,6 +93,16 @@ export default function RevenueCalculator() {
           Estimated Monthly Revenue: <span className="font-semibold">${calculateRevenue().toLocaleString()}</span>
         </p>
       </div>
+      <div className="mt-4 text-sm text-gray-600">
+        <p className="mb-2">
+          This calculator helps estimate potential monthly revenue for subscription/payment websites:
+        </p>
+        <ul className="list-disc pl-5 space-y-1">
+          <li>Traffic: Monthly visitors to the payment page (Stripe/PayPal)</li>
+          <li>Average Order Value: Typical purchase amount per customer</li>
+          <li>Conversion Rate: Percentage of visitors who complete a purchase</li>
+        </ul>
+      </div>
     </div>
   );
 } 
