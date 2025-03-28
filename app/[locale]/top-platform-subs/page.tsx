@@ -1,4 +1,4 @@
-import PlatformSubsTable from "./components/PlatformSubsTable"
+import PlatformSubsTable from "./PlatformSubsTable"
 import { getPlatformData } from "@/lib/data"
 
 export default async function Home() {

@@ -1,4 +1,4 @@
-import MoneySitesTable from "./components/MoneySitesTable"
+import MoneySitesTable from "./MoneySitesTable"
 import { getTopPaidSites } from "@/lib/data"
 
 export default async function Home() {

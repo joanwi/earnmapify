@@ -1,8 +1,7 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
-import { Analytics } from '@vercel/analytics/react';
-import { locales } from '@/app/i18n';
+import { locales } from '@/i18n'; 
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import '../globals.css';
@@ -29,7 +28,6 @@ export default async function LocaleLayout({
   if (!locales.includes(locale)) {
     notFound();
   }
-
   let messages;
   try {
     messages = (await import(`../../messages/${locale}.json`)).default;
@@ -47,7 +45,6 @@ export default async function LocaleLayout({
           </main>
           <Footer />
         </NextIntlClientProvider>
-        <Analytics />
       </body>
     </html>
   );

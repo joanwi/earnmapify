@@ -1,5 +1,5 @@
 import clientPromise from "@/lib/mongodb"
-import type { PlatformSubs, MoneyMakingSite } from "@/lib/types"
+import type { PlatformSubs, MoneyMakingSite, IndustryLeader } from "@/lib/types"
 
 export async function getPlatformData() {
   try {
@@ -39,12 +39,10 @@ export async function getTopPaidSites() {
       .toArray();
       
     return sites.map(site => {
-      // 确保 trafficShare 格式一致
       let trafficShare = site.trafficShare;
       if (trafficShare && !trafficShare.includes('%')) {
         trafficShare = `${trafficShare}%`;
-      }
-      
+      } 
       return {
         ...site,
         _id: site._id.toString(),
@@ -56,3 +54,26 @@ export async function getTopPaidSites() {
     return [];
   }
 }
+
+
+export async function getIndustryLeaders() {
+  try {
+    const client = await clientPromise;
+    const db = client.db("earnmap");
+    
+    const industryData = await db
+      .collection<IndustryLeader>("industryleaders")
+      .find({})
+      .toArray();
+    
+    const industrySites = industryData.map(item => ({
+      ...item,
+      _id: item._id.toString(), 
+    }));
+    
+    return industrySites;
+  } catch (error) {
+    console.error("Database Error:", error);
+    return [];
+  }
+} 

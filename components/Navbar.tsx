@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
-import { locales } from '@/app/i18n';
+import { locales } from '@/i18n'; 
 
 export default function Navbar() {
   const t = useTranslations('navigation');
