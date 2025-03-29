@@ -102,9 +102,9 @@ export default function ADCalculator() {
       </div>
 
       <div className="mt-6 p-4 bg-blue-50 rounded-md">
-        <p className="text-sm text-blue-700">
+        <h2 className="text-2x text-blue-700">
           Estimated Monthly Ad Revenue: <span className="font-semibold">${calculateRevenue().toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
-        </p>
+        </h2>
       </div>
 
       <div className="mt-4 text-sm text-gray-600">
@@ -112,7 +112,7 @@ export default function ADCalculator() {
           This calculator helps estimate potential monthly ad revenue based on:
         </p>
         <ul className="list-disc pl-5 space-y-1">
-          <li><strong>Monthly Visits:</strong> Total number of page views your site receives per month(K: thousand, M: million)</li>
+          <li><strong>Monthly Visits:</strong> Unique Visitors per month(K: thousand, M: million)</li>
           <li><strong>Ads per Page:</strong> Number of ad units displayed on each page</li>
           <li><strong>Pages per Visit:</strong> Average number of pages a visitor views during each session</li>
           <li><strong>CPM (Cost Per Mille):</strong> Amount advertisers pay per 1,000 impressions. Here is a rough reference range for CPM in different countries:
