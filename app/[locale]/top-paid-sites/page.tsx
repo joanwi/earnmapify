@@ -1,4 +1,4 @@
-import MoneySitesTable from "./MoneySitesTable"
+import TopPidTable from "./TopPidTable"
 import { getTopPaidSites } from "@/lib/data"
 import RevenueCalculator from "./RevenueCalculator"
 
@@ -12,7 +12,7 @@ export default async function Home() {
       <h1 className="text-3xl font-bold mb-2">Money Making Sites</h1>
       <p className="text-gray-600 mb-6">Discover high-traffic websites in payment platforms like PayPal and Stripe</p>
     
-      <MoneySitesTable initialData={initialData} />
+      <TopPidTable initialData={initialData} />
     </div>
   )
 }

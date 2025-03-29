@@ -1,9 +1,21 @@
 import Link from 'next/link';
 import { getLocale, getTranslations } from 'next-intl/server';
+import RevenueCalculator from "./industry-leaders/RevenueCalculator"
+import TopPidTable from "./top-paid-sites/TopPidTable";
+import PlatformSubsTable from "./top-platform-subs/PlatformSubsTable";
+import IndustryLeadersTable from "./industry-leaders/IndustryLeadersTable";
+import { getTopPaidSites, getPlatformData, getIndustryLeaders } from "@/lib/data";
 
 export default async function HomePage() {
   const t = await getTranslations();
   const currentLocale = await getLocale();
+
+  // 获取初始数据
+  const [moneySites, platformSubs, industryLeaders] = await Promise.all([
+    getTopPaidSites(),
+    getPlatformData(),
+    getIndustryLeaders()
+  ]);
 
   const getLocalizedPath = (path: string) => {
     return currentLocale === 'en' ? path : `/${currentLocale}${path}`;
@@ -74,9 +86,12 @@ export default async function HomePage() {
           </div>
         </div>
       </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <RevenueCalculator />
+      </div>
 
       {/* Section cards */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="grid grid-cols-1 gap-8">
           {sections.map((section) => (
             <div key={section.id} className="grid grid-cols-1 lg:grid-cols-4 gap-6">
@@ -119,12 +134,10 @@ export default async function HomePage() {
                     </svg>
                   </Link>
                 </div>
-                <div className="h-[352px]">
-                  <iframe 
-                    src={getLocalizedPath(section.path)}
-                    className="w-full h-full border-none"
-                    title={`${section.title} preview`}
-                  />
+                <div className="h-[352px] overflow-y-auto">
+                  {section.id === 'money-making-sites' && <TopPidTable initialData={moneySites} />}
+                  {section.id === 'platform-subsites' && <PlatformSubsTable initialData={platformSubs} />}
+                  {section.id === 'industry-leaders' && <IndustryLeadersTable initialData={industryLeaders} />}
                 </div>
               </div>
             </div>

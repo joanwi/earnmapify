@@ -296,20 +296,20 @@ export default function PlatformSubsTable({ initialData }: PlatformSubsTableProp
         <table className="w-full bg-white border table-fixed">
           <thead>
             <tr className="bg-gray-100 border-b">
-              <th className="w-2/5 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">URL</th>
-              <th className="w-1/5 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer" onClick={() => handleSort("clicks")}>
+              <th className="w-1/4 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">URL</th>
+              <th className="w-1/4 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer" onClick={() => handleSort("clicks")}>
                 <div className="flex items-center">
                   Clicks
                   {getSortIcon("clicks")}
                 </div>
               </th>
-              <th className="w-1/5 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer" onClick={() => handleSort("change")}>
+              <th className="w-1/4 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer" onClick={() => handleSort("change")}>
                 <div className="flex items-center">
                   Change
                   {getSortIcon("change")}
                 </div>
               </th>
-              <th className="w-1/5 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Top Keyword</th>
+              <th className="w-1/4 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Top Keyword</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">

@@ -8,7 +8,7 @@ interface MoneySitesTableProps {
   initialData: MoneyMakingSite[]
 }
 
-export default function MoneySitesTable({ initialData }: MoneySitesTableProps) {
+export default function TopPidTable({ initialData }: MoneySitesTableProps) {
   const [moneyMakingSites] = useState<MoneyMakingSite[]>(initialData)
   const [data, setData] = useState<MoneyMakingSite[]>([])
   const [platform, setPlatform] = useState<string>("Stripe")
