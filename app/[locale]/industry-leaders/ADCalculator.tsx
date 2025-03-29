@@ -112,7 +112,7 @@ export default function ADCalculator() {
           This calculator helps estimate potential monthly ad revenue based on:
         </p>
         <ul className="list-disc pl-5 space-y-1">
-          <li><strong>Monthly Visits:</strong> Total number of page views your site receives per month</li>
+          <li><strong>Monthly Visits:</strong> Total number of page views your site receives per month(K: thousand, M: million)</li>
           <li><strong>Ads per Page:</strong> Number of ad units displayed on each page</li>
           <li><strong>Pages per Visit:</strong> Average number of pages a visitor views during each session</li>
           <li><strong>CPM (Cost Per Mille):</strong> Amount advertisers pay per 1,000 impressions. Here is a rough reference range for CPM in different countries:
