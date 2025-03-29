@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { getLocale, getTranslations } from 'next-intl/server';
-import RevenueCalculator from "./industry-leaders/RevenueCalculator"
+import ADCalculator from "./industry-leaders/ADCalculator"      
 import TopPidTable from "./top-paid-sites/TopPidTable";
 import PlatformSubsTable from "./top-platform-subs/PlatformSubsTable";
-import IndustryLeadersTable from "./industry-leaders/IndustryLeadersTable";
+import IndustryLeadersTable from "./industry-leaders/IndustryLeadersTable";   
 import { getTopPaidSites, getPlatformData, getIndustryLeaders } from "@/lib/data";
 
 export default async function HomePage() {
@@ -23,7 +23,7 @@ export default async function HomePage() {
 
   const sections = [
     {
-      id: 'money-making-sites',
+      id: 'top-paid-sites',
       title: t('navigation.moneyMakingSites'),
       description: t('moneyMakingSites.description'),
       path: '/top-paid-sites',
@@ -87,7 +87,7 @@ export default async function HomePage() {
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <RevenueCalculator />
+        <ADCalculator /> 
       </div>
 
       {/* Section cards */}
@@ -135,7 +135,7 @@ export default async function HomePage() {
                   </Link>
                 </div>
                 <div className="h-[352px] overflow-y-auto">
-                  {section.id === 'money-making-sites' && <TopPidTable initialData={moneySites} />}
+                  {section.id === 'top-paid-sites' && <TopPidTable initialData={moneySites} />}
                   {section.id === 'platform-subsites' && <PlatformSubsTable initialData={platformSubs} />}
                   {section.id === 'industry-leaders' && <IndustryLeadersTable initialData={industryLeaders} />}
                 </div>

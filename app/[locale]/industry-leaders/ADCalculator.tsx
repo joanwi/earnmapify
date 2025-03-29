@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-export default function RevenueCalculator() {
+export default function ADCalculator() {
   const [clicks, setClicks] = useState('');
   const [clicksUnit, setClicksUnit] = useState('K');
   const [cpm, setCpm] = useState('');
@@ -29,7 +29,7 @@ export default function RevenueCalculator() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Monthly Clicks
+            Monthly Visits
           </label>
           <div className="flex">
             <input
@@ -38,7 +38,7 @@ export default function RevenueCalculator() {
               value={clicks}
               onChange={(e) => setClicks(e.target.value)}
               className="block w-full rounded-l-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
-              placeholder="Enter clicks"
+              placeholder="Enter visits"
             />
             <select 
               value={clicksUnit}
@@ -112,13 +112,13 @@ export default function RevenueCalculator() {
           This calculator helps estimate potential monthly ad revenue based on:
         </p>
         <ul className="list-disc pl-5 space-y-1">
-          <li><strong>Monthly Clicks:</strong> Total number of page views your site receives per month</li>
+          <li><strong>Monthly Visits:</strong> Total number of page views your site receives per month</li>
           <li><strong>CPM (Cost Per Mille):</strong> Amount advertisers pay per 1,000 impressions</li>
           <li><strong>Ads per Page:</strong> Number of ad units displayed on each page</li>
           <li><strong>Pages per Visit:</strong> Average number of pages a visitor views during each session</li>
         </ul>
         <p className="mt-2">
-          Formula: Monthly Clicks × CPM × Ads per Page × Pages per Visit ÷ 1000
+          Formula: Monthly Visits × CPM × Ads per Page × Pages per Visit ÷ 1000
         </p>
       </div>
     </div>
