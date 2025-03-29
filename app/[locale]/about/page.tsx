@@ -1,9 +1,7 @@
-'use client';
+import { getTranslations } from 'next-intl/server';
 
-import { useTranslations } from 'next-intl';
-
-export default function AboutPage() {
-  const t = useTranslations();
+export default async function AboutPage() {
+  const t = await  getTranslations();
 
   return (
     <div className="bg-white py-8 px-4 sm:px-6 lg:px-8">
@@ -20,8 +18,8 @@ export default function AboutPage() {
             The data presented on this website is gathered from multiple sources:
           </p>
           <ul className="list-disc pl-6 mb-6">
-            <li className="mb-2">Similarweb API for traffic and analytics data</li>
-            <li className="mb-2">Public APIs from platforms like GitHub, Product Hunt, and more</li>
+            <li className="mb-2">Similarweb for traffic and analytics data</li>
+            <li className="mb-2">Public from platforms like GitHub, Product Hunt, and more</li>
             <li className="mb-2">Custom web scrapers for specialized data collection</li>
           </ul>
           
@@ -30,10 +28,10 @@ export default function AboutPage() {
             Our data is updated according to the following schedule:
           </p>
           <ul className="list-disc pl-6 mb-6">
-            <li className="mb-2">Money Making Sites: Monthly</li>
-            <li className="mb-2">Platform Subsites: Weekly</li>
-            <li className="mb-2">Category Sites: Weekly</li>
-            <li className="mb-2">Info & Trends: Daily</li>
+            <li className="mb-2">Top Paid Sites: Monthly</li>
+            <li className="mb-2">Top Platform Subsites: Monthly</li>
+            <li className="mb-2">Industry Leaders: Monthly</li>
+            <li className="mb-2">Info & Trends: Weekly</li>
           </ul>
           
           <h2 className="text-xl font-semibold text-gray-900 mt-8 mb-4">Contact</h2>

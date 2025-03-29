@@ -1,13 +1,10 @@
-'use client';
-
 import Link from 'next/link';
-import { useLocale, useTranslations } from 'next-intl';
+import { getLocale, getTranslations } from 'next-intl/server';
 
-export default function HomePage() {
-  const t = useTranslations();
-  const currentLocale = useLocale();
+export default async function HomePage() {
+  const t = await getTranslations();
+  const currentLocale = await getLocale();
 
-  // Helper function to generate correct localized URLs
   const getLocalizedPath = (path: string) => {
     return currentLocale === 'en' ? path : `/${currentLocale}${path}`;
   };
@@ -15,7 +12,7 @@ export default function HomePage() {
   const sections = [
     {
       id: 'money-making-sites',
-      title: t('moneyMakingSites.title'),
+      title: t('navigation.moneyMakingSites'),
       description: t('moneyMakingSites.description'),
       path: '/top-paid-sites',
       icon: (
@@ -26,7 +23,7 @@ export default function HomePage() {
     },
     {
       id: 'platform-subsites',
-      title: t('platformSubsites.title'),
+      title: t('navigation.platformSubsites'),
       description: t('platformSubsites.description'),
       path: '/top-platform-subs',
       icon: (
@@ -37,7 +34,7 @@ export default function HomePage() {
     },
     {
       id: 'industry-leaders',
-      title: t('categorySites.title'),
+      title: t('navigation.categorySites'),
       description: t('categorySites.description'),
       path: '/industry-leaders',
       icon: (
@@ -46,17 +43,17 @@ export default function HomePage() {
         </svg>
       ),
     },
-    {
-      id: 'info-sites',
-      title: t('infoSites.title'),
-      description: t('infoSites.description'),
-      path: '/info-sites',
-      icon: (
-        <svg className="h-10 w-10 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
-    },
+    // {
+    //   id: 'info-sites',
+    //   title: t('infoSites.title'),
+    //   description: t('infoSites.description'),
+    //   path: '/info-sites',
+    //   icon: (
+    //     <svg className="h-10 w-10 text-yellow-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    //       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+    //     </svg>
+    //   ),
+    // },
   ];
 
   return (
@@ -80,31 +77,57 @@ export default function HomePage() {
 
       {/* Section cards */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8">
           {sections.map((section) => (
-            <Link key={section.id} href={getLocalizedPath(section.path)}>
-              <div className="group relative bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                <div className="p-6">
-                  <div className="flex justify-center">
-                    {section.icon}
+            <div key={section.id} className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+              {/* 左侧卡片 */}
+              <Link href={getLocalizedPath(section.path)} className="lg:col-span-1">
+                <div className="group relative bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 h-[400px]">
+                  <div className="p-8">
+                    <div className="flex justify-center">
+                      {section.icon}
+                    </div>
+                    <div className="mt-6 text-center">
+                      <h3 className="text-xl font-medium text-gray-900">{section.title}</h3>
+                      <p className="mt-4 text-base text-gray-500">{section.description}</p>
+                    </div>
                   </div>
-                  <div className="mt-4 text-center">
-                    <h3 className="text-lg font-medium text-gray-900">{section.title}</h3>
-                    <p className="mt-2 text-sm text-gray-500 line-clamp-3">{section.description}</p>
+                  <div className="absolute bottom-0 w-full p-4 border-t border-gray-200 bg-gray-50">
+                    <div className="flex items-center justify-center">
+                      <span className="text-sm font-medium text-blue-600 group-hover:text-blue-700">
+                        {t('common.viewAll')}
+                      </span>
+                      <svg className="ml-1 h-5 w-5 text-blue-600 group-hover:text-blue-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+                      </svg>
+                    </div>
                   </div>
                 </div>
-                <div className="p-4 border-t border-gray-200 bg-gray-50">
-                  <div className="flex items-center justify-center">
-                    <span className="text-sm font-medium text-blue-600 group-hover:text-blue-700">
-                      {t('common.viewAll')}
-                    </span>
-                    <svg className="ml-1 h-5 w-5 text-blue-600 group-hover:text-blue-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              </Link>
+
+              {/* 右侧数据预览 */}
+              <div className="lg:col-span-3 bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+                <div className="p-4 border-b border-gray-200 flex justify-between items-center">
+                  <h4 className="text-lg font-medium text-gray-900">Latest Data</h4>
+                  <Link 
+                    href={getLocalizedPath(section.path)}
+                    className="text-sm text-blue-600 hover:text-blue-700 flex items-center"
+                  >
+                    View Full Page
+                    <svg className="ml-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
                     </svg>
-                  </div>
+                  </Link>
+                </div>
+                <div className="h-[352px]">
+                  <iframe 
+                    src={getLocalizedPath(section.path)}
+                    className="w-full h-full border-none"
+                    title={`${section.title} preview`}
+                  />
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
 

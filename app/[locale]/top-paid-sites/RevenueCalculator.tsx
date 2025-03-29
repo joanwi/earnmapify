@@ -98,10 +98,13 @@ export default function RevenueCalculator() {
           This calculator helps estimate potential monthly revenue for subscription/payment websites:
         </p>
         <ul className="list-disc pl-5 space-y-1">
-          <li>Traffic: Monthly visitors to the payment page (Stripe/PayPal)</li>
-          <li>Average Order Value: Typical purchase amount per customer</li>
-          <li>Conversion Rate: Percentage of visitors who complete a purchase</li>
+          <li><strong>Traffic:</strong> Monthly visitors who reach the payment platform (e.g., Stripe/PayPal) from the target website</li>
+          <li><strong>Average Order Value:</strong> The typical price of products/services found on the target website's pricing page</li>
+          <li><strong>Conversion Rate:</strong> Percentage of visitors who complete the payment after reaching the payment platform (excluding those who abandon or cancel orders)</li>
         </ul>
+        <p className="mt-2">
+          Formula: Monthly Payment Page Visitors × Average Order Value × Payment Completion Rate
+        </p>
       </div>
     </div>
   );

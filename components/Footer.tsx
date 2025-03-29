@@ -1,11 +1,10 @@
-'use client';
-
 import Link from 'next/link';
-import { useLocale, useTranslations } from 'next-intl';
+import { getLocale, getTranslations } from 'next-intl/server';
 
-export default function Footer() {
-  const t = useTranslations('footer');
-  const currentLocale = useLocale();
+
+export default async function Footer() {
+  const t = await getTranslations('footer');
+  const currentLocale = await getLocale();
 
   // Helper function to generate correct localized URLs
   const getLocalizedPath = (path: string) => {
@@ -46,12 +45,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href={getLocalizedPath('/category-sites')} className="text-base text-gray-500 hover:text-gray-900">
+                <Link href={getLocalizedPath('/industry-leaders')} className="text-base text-gray-500 hover:text-gray-900">
                   {t('categories')}
                 </Link>
               </li>
               <li>
-                <Link href={getLocalizedPath('/info-sites')} className="text-base text-gray-500 hover:text-gray-900">
+                <Link href={getLocalizedPath('/#')} className="text-base text-gray-500 hover:text-gray-900">
                   {t('info')}
                 </Link>
               </li>
@@ -65,17 +64,17 @@ export default function Footer() {
             </h3>
             <ul className="mt-4 space-y-4">
               <li>
-                <Link href={getLocalizedPath('/blog')} className="text-base text-gray-500 hover:text-gray-900">
-                  {t('blog')}
+                <Link href={getLocalizedPath('/about')} className="text-base text-gray-500 hover:text-gray-900">
+                  {t('about')}
                 </Link>
               </li>
               <li>
-                <Link href={getLocalizedPath('/api')} className="text-base text-gray-500 hover:text-gray-900">
+                <Link href={getLocalizedPath('/#')} className="text-base text-gray-500 hover:text-gray-900">
                   {t('api')}
                 </Link>
               </li>
               <li>
-                <Link href={getLocalizedPath('/documentation')} className="text-base text-gray-500 hover:text-gray-900">
+                <Link href={getLocalizedPath('/#')} className="text-base text-gray-500 hover:text-gray-900">
                   {t('documentation')}
                 </Link>
               </li>
@@ -89,7 +88,7 @@ export default function Footer() {
             </h3>
             <ul className="mt-4 space-y-4">
               <li>
-                <a href="mailto:contact@makemoneyweb.com" className="text-base text-gray-500 hover:text-gray-900">
+                <a href="#" className="text-base text-gray-500 hover:text-gray-900">
                   {t('email')}
                 </a>
               </li>
@@ -100,17 +99,17 @@ export default function Footer() {
             </h3>
             <ul className="mt-4 space-y-4">
               <li>
-                <a href="https://twitter.com/makemoneyweb" className="text-base text-gray-500 hover:text-gray-900">
+                <a href="#" className="text-base text-gray-500 hover:text-gray-900">
                   {t('twitter')}
                 </a>
               </li>
               <li>
-                <a href="https://github.com/makemoneyweb" className="text-base text-gray-500 hover:text-gray-900">
+                <a href="#" className="text-base text-gray-500 hover:text-gray-900">
                   {t('github')}
                 </a>
               </li>
               <li>
-                <a href="https://linkedin.com/company/makemoneyweb" className="text-base text-gray-500 hover:text-gray-900">
+                <a href="#" className="text-base text-gray-500 hover:text-gray-900">
                   {t('linkedin')}
                 </a>
               </li>
@@ -124,17 +123,17 @@ export default function Footer() {
             </h3>
             <ul className="mt-4 space-y-4">
               <li>
-                <Link href={getLocalizedPath('/privacy')} className="text-base text-gray-500 hover:text-gray-900">
+                <Link href={getLocalizedPath('/#')} className="text-base text-gray-500 hover:text-gray-900">
                   {t('privacy')}
                 </Link>
               </li>
               <li>
-                <Link href={getLocalizedPath('/terms')} className="text-base text-gray-500 hover:text-gray-900">
+                <Link href={getLocalizedPath('/#')} className="text-base text-gray-500 hover:text-gray-900">
                   {t('terms')}
                 </Link>
               </li>
               <li>
-                <Link href={getLocalizedPath('/cookies')} className="text-base text-gray-500 hover:text-gray-900">
+                <Link href={getLocalizedPath('/#')} className="text-base text-gray-500 hover:text-gray-900">
                   {t('cookies')}
                 </Link>
               </li>
