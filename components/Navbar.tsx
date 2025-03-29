@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { locales } from '@/i18n';
-import { ChevronDown } from 'lucide-react';
 
 export default function Navbar() {
   const t = useTranslations('navigation');
@@ -14,7 +13,6 @@ export default function Navbar() {
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   // Add debug logging to help understand paths
   useEffect(() => {
@@ -46,12 +44,7 @@ export default function Navbar() {
     { name: t('moneyMakingSites'), path: '/top-paid-sites'},
     { name: t('platformSubsites'), path: '/top-platform-subs' },
     { name: t('categorySites'), path: '/industry-leaders' },
-  ];
-
-  const dropdownItems = [
-    { name: 'Aaaaaa', path: '#' },
-    { name: 'B', path: '#' },
-    { name: 'C', path: '#' },
+    { name: t('incomeTrends'), path: '/income-trends' },
   ];
 
   const isActive = (path: string) => {
@@ -90,45 +83,6 @@ export default function Navbar() {
                 {route.name}
               </Link>
             ))}
-            {/* Dropdown Menu */}
-            <div 
-              className="relative group"
-              onMouseEnter={() => setIsDropdownOpen(true)}
-              onMouseLeave={() => setIsDropdownOpen(false)}
-            >
-              <button
-                className={`inline-flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                  pathname.startsWith('/info-sites')
-                    ? 'bg-blue-50 text-blue-700'
-                    : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-                }`}
-              >
-                {t('infoSites')}
-                <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} />
-              </button>
-              <div 
-                className={`absolute z-10 mt-1 w-56 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 transform transition-all duration-200 ease-in-out ${
-                  isDropdownOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-                }`}
-              >
-                <div className="py-1" role="menu">
-                  {dropdownItems.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={currentLocale === 'en' ? item.path : `/${currentLocale}${item.path}`}
-                      className={`block px-4 py-2.5 text-sm transition-colors duration-150 ${
-                        pathname === item.path
-                          ? "bg-blue-50 text-blue-700"
-                          : "text-gray-700 hover:bg-gray-50 hover:text-gray-900"
-                      }`}
-                      role="menuitem"
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
           </div>
 
           <div className="hidden md:flex md:items-center">
@@ -290,26 +244,6 @@ export default function Navbar() {
               {route.name}
             </Link>
           ))}
-          {/* Mobile Dropdown Menu */}
-          <div className="pl-3 pr-4 py-2">
-            <div className="text-base font-medium text-gray-500">{t('infoSites')}</div>
-            <div className="mt-2 space-y-1">
-              {dropdownItems.map((item) => (
-                <Link
-                  key={item.name}
-                  href={currentLocale === 'en' ? item.path : `/${currentLocale}${item.path}`}
-                  className={`block pl-6 pr-4 py-2 text-base font-medium ${
-                    pathname === item.path
-                      ? "bg-blue-50 border-blue-500 text-blue-700"
-                      : "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700"
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </nav>

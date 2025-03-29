@@ -19,6 +19,9 @@ const nextConfig: NextConfig = {
     }
     return config;
   },
+  images: {
+    domains: ['placehold.co'], 
+  },
   transpilePackages: ['mongodb']
 };
 

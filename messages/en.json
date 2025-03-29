@@ -3,7 +3,7 @@
     "moneyMakingSites": "Top Paid Sites",
     "platformSubsites": "Top Platform Subs",
     "categorySites": "Industry Leaders",
-    "infoSites": "Income Trends"
+    "incomeTrends": "Income Trends"
   },
   "common": {
     "updatedOn": "Updated on",
@@ -52,13 +52,9 @@
     "games": "Games",
     "tools": "Tools"
   },
-  "infoSites": {
-    "title": "Info Sites",
-    "description": "Stay updated with trends from Product Hunt, GitHub, and more",
-    "productHunt": "Product Hunt",
-    "github": "GitHub",
-    "huggingFace": "Hugging Face",
-    "googleTrends": "Google Trends"
+  "incomeTrends": {
+    "title": "Income Trends",
+    "description": "Stay updated with trends from Product Hunt, GitHub, and more"
   },
   "about": {
     "title": "About This Project",
