@@ -210,7 +210,7 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
   return (
     <>
       {/* Platform Filter */}
-      <div className="mb-6">
+      <div className="mb-2">
         <div className="inline-flex border rounded-md overflow-hidden">
           <button
             className={`px-4 py-2 ${platform === "Stripe" ? "bg-blue-500 text-white" : "bg-white"}`}
@@ -238,7 +238,7 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
       </div>
 
       {/* View Mode Filter */}
-      <div className="flex justify-end mb-6">
+      <div className="flex justify-end mb-2">
         <div className="inline-flex border rounded-md overflow-hidden">
           <button
             className={`px-4 py-2 ${viewMode === "newly" ? "bg-blue-500 text-white" : "bg-white"}`}

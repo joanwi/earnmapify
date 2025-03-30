@@ -149,7 +149,7 @@ export default function IndustryLeadersTable({ initialData }: IndustryLeadersTab
   return (
     <div>
       {/* 行业过滤器 */}
-      <div className="mb-6">
+      <div className="mb-2">
         <div className="inline-flex border rounded-md overflow-hidden">
           <button
             className={`px-4 py-2 cursor-pointer hover:bg-blue-100 ${industry === "games" ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-white"}`}

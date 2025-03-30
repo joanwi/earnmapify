@@ -214,7 +214,7 @@ export default function PlatformSubsTable({ initialData }: PlatformSubsTableProp
   return (
     <>
       {/* 平台过滤器 */}
-      <div className="mb-6">
+      <div className="mb-2">
         <div className="inline-flex border rounded-md overflow-hidden">
           <button
             className={`px-4 py-2 cursor-pointer hover:bg-blue-100 ${platform === "vercel.app" ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-white"}`}
@@ -264,7 +264,7 @@ export default function PlatformSubsTable({ initialData }: PlatformSubsTableProp
       </div>
 
       {/* 视图模式过滤器 */}
-      <div className="flex justify-end mb-6">
+      <div className="flex justify-end mb-2">
         <div className="inline-flex border rounded-md overflow-hidden">
           <button
             className={`px-4 py-2 cursor-pointer hover:bg-blue-100 ${viewMode === "trending" ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-white"}`}
