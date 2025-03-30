@@ -60,23 +60,19 @@ export default async function HomePage() {
   return (
     <div className="bg-white">
       {/* Hero section */}
-      <div className="relative overflow-hidden">
-        <div className="absolute inset-y-0 w-full h-full bg-gradient-to-br from-blue-50 to-indigo-100" aria-hidden="true" />
-        <div className="relative pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
-          <div className="relative max-w-7xl mx-auto">
-            <div className="text-center">
-              <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                {t('home.heroTitle')}
-              </h1>
-              <p className="mt-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
-                {t('home.heroDescription')}
-              </p>
-            </div>
-          </div>
+      <div className="mb-4 bg-gradient-to-br from-blue-50 to-indigo-100 py-8 lg:py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-3xl md:text-4xl">
+            {t('home.heroTitle')}
+          </h1>
+          <p className="mt-3 max-w-3xl mx-auto text-lg text-gray-500 sm:text-xl">
+            {t('home.heroDescription')}
+          </p>
         </div>
       </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ADCalculator /> 
+        <ADCalculator />
       </div>
 
       {/* Section cards */}

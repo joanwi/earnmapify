@@ -14,8 +14,8 @@ export default async function TopPlatformSubs() {
   
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h1 className="text-3xl font-bold mb-2">Top Platform Subdomains</h1>
-      <p className="text-gray-600 mb-6">Discover high-traffic subdomains across popular hosting platforms</p>
+      <h1 className="text-3xl font-bold my-2 text-center">Top Platform Subdomains</h1>
+      <p className="text-gray-600 mb-2 text-center">Discover high-traffic subdomains across popular hosting platforms</p>
       <ADCalculator />
       <PlatformSubsTable initialData={initialData} />
     </div>
