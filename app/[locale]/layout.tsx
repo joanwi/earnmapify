@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { locales } from '@/i18n'; 
 import Navbar from '@/components/Navbar';
