@@ -20,25 +20,14 @@ export default async function LocaleLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
-  const locale = params.locale;
+  const {locale}=await params;
   
-  // Validate that the incoming locale is supported
-  if (!locales.includes(locale)) {
-    notFound();
-  }
-  let messages;
-  try {
-    messages = (await import(`../../messages/${locale}.json`)).default;
-  } catch {
-    notFound();
-  }
-
   return (
     <html lang={locale}>
       <body className="min-h-screen bg-gray-50 flex flex-col">
-        <NextIntlClientProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider locale={locale}>
           <Navbar />
           <main className="flex-grow">
             {children}
