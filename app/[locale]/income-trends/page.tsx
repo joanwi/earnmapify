@@ -1,42 +1,50 @@
 import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
+import Image from 'next/image';
 
-function getCurrentDate() {
-  const date = new Date();
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
-  return `${year}/${month}/${day}`;
+function getCurrentWeek() {
+  const now = new Date();
+  const start = new Date(now.getFullYear(), 0, 1);
+  const diff = now.getTime() - start.getTime();
+  const oneWeek = 1000 * 60 * 60 * 24 * 7;
+  const weekNumber = Math.floor(diff / oneWeek) + 1;
+  return `${now.getFullYear()}/${weekNumber}`;
 }
 
 export default async function IncomeTrendsPage() {
   const t = await getTranslations();
-  const currentDate = getCurrentDate();
+  const currentWeek = getCurrentWeek();
 
   const pages = [
     {
-      title: 'AI Tools Revenue',
-      description: 'Discover top AI tools ranked by revenue and monthly visits. Track market leaders and emerging players in the AI industry.',
-      bgColor: 'bg-blue-600',
+      title: 'High Income AI Websites - Toolify',
+      description: 'AI High Revenue Ranking based on AI website rankings on payment platforms and actual monthly traffic to the website.',
+      image: '/toolify.png',
       href: 'https://www.toolify.ai/Best-AI-Tools-revenue'
     },
     {
-      title: 'Daily Product Hunt Leaders',
-      description: 'Explore trending products and innovations. Updated daily with the latest launches and success stories.',
-      bgColor: 'bg-red-600',
-      href: `https://www.producthunt.com/leaderboard/daily/${currentDate}`
+      title: 'Best of the week - Product Hunt',
+      description: 'Product Hunt is a curation of the best new products, every day. Discover the latest mobile apps, websites, and technology products that everyone\'s talking about.',
+      image: '/producthunt.png',
+      href: `https://www.producthunt.com/leaderboard/weekly/${currentWeek}`
     },
     {
-      title: 'Indie Hackers AI Revenue',
-      description: 'Find successful AI products built by independent developers. Verified revenue data through Stripe integration.',
-      bgColor: 'bg-green-600',
+      title: 'Products - Indie Hackers',
+      description: 'Discover hundreds of businesses, startups, and side projects that are making money online, and learn how they got to where they are today.',
+      image: '/indeshacks.png',
       href: 'https://www.indiehackers.com/products?category=ai&revenueVerification=stripe&sorting=highest-revenue'
     },
     {
-      title: 'Trending AI Models',
-      description: 'Explore popular AI models on Hugging Face. Stay updated with the latest developments in machine learning.',
-      bgColor: 'bg-orange-500',
+      title: 'Trending AI Models - Hugging Face',
+      description: 'We\'re on a journey to advance and democratize artificial intelligence through open source and open science.',
+      image: '/huggingface.png',
       href: 'https://huggingface.co/models?sort=trending'
+    },
+    {
+      title: 'Trending Now - Google Trends',
+      description: 'Explore the latest trending searches with real-time insights. This page showcases what people are currently searching for, from breaking news to popular topics, updated dynamically. ',
+      image: '/Google-trending-now.png',
+      href: 'https://trends.google.com/trending?geo=US&hl=en-US'
     }
   ];
 
@@ -45,7 +53,7 @@ export default async function IncomeTrendsPage() {
       <h1 className="text-3xl font-bold mb-2">{t('incomeTrends.title')}</h1>
       <p className="text-gray-600 mb-8">{t('incomeTrends.description')}</p>
       
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {pages.map((page, index) => (
           <Link 
             key={index}
@@ -54,8 +62,15 @@ export default async function IncomeTrendsPage() {
             rel="noopener noreferrer"
             className="group block bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-200"
           >
-            <div className={`h-48 ${page.bgColor} flex items-center justify-center`}>
-              <span className="text-2xl font-bold text-white">{page.title}</span>
+            <div className="relative h-48 bg-gray-100">
+              <Image
+                src={page.image}
+                alt={page.title}
+                width={640}
+                height={360}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+                unoptimized
+              />
             </div>
             <div className="p-6">
               <h2 className="text-xl font-semibold mb-2 group-hover:text-blue-600 transition-colors duration-200">
