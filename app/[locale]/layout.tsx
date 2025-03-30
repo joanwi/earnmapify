@@ -4,6 +4,8 @@ import { locales } from '@/i18n';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import '../globals.css';
+import { GoogleAnalytics } from "@next/third-parties/google";
+
 
 export const metadata: Metadata = {
   title: "Website Traffic & Trends: Top Sites & Insights 2025 - EarnMapify",
@@ -34,6 +36,7 @@ export default async function LocaleLayout({
           <Footer />
         </NextIntlClientProvider>
       </body>
+      <GoogleAnalytics gaId="G-E2S1PSKHRR" />
     </html>
   );
 } 
