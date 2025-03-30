@@ -1,8 +1,15 @@
 import IndustryLeadersTable from "./IndustryLeadersTable"
 import { getIndustryLeaders } from "@/lib/data"
-import ADCalculator from "./ADCalculator";    
+import ADCalculator from "./ADCalculator"; 
+import { Metadata } from 'next';
 
-export default async function Home() {
+export const metadata: Metadata = {
+  title: 'Industry Leaders',
+  description: 'Discover top performing websites in games and tools categories',
+};
+
+
+export default async function IndustryLeaders() {
   const initialData = await getIndustryLeaders();
   
   return (

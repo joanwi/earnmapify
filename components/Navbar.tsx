@@ -14,11 +14,6 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangOpen, setIsLangOpen] = useState(false);
 
-  // Add debug logging to help understand paths
-  useEffect(() => {
-    console.log('Current locale:', currentLocale);
-    console.log('Current pathname:', pathname);
-  }, [currentLocale, pathname]);
 
   // Handle language paths correctly
   const getLocalePath = (locale: string) => {
@@ -40,7 +35,7 @@ export default function Navbar() {
     router.push(path);
   };
 
-  const routes = [
+  const navs = [
     { name: t('moneyMakingSites'), path: '/top-paid-sites'},
     { name: t('platformSubsites'), path: '/top-platform-subs' },
     { name: t('categorySites'), path: '/industry-leaders' },
@@ -70,17 +65,17 @@ export default function Navbar() {
 
           {/* Desktop menu */}
           <div className="hidden md:flex md:items-center md:space-x-4">
-            {routes.map((route) => (
+            {navs.map((nav) => (
               <Link
-                key={route.path}
-                href={currentLocale === 'en' ? route.path : `/${currentLocale}${route.path}`}
+                key={nav.path}
+                href={currentLocale === 'en' ? nav.path : `/${currentLocale}${nav.path}`}
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                  isActive(route.path)
+                  isActive(nav.path)  
                     ? 'bg-blue-50 text-blue-700'
                     : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                 }`}
               >
-                {route.name}
+                {nav.name}
               </Link>
             ))}
           </div>
@@ -230,18 +225,18 @@ export default function Navbar() {
       {/* Mobile menu */}
       <div className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          {routes.map((route) => (
+          {navs.map((nav) => (
             <Link
-              key={route.path}
-              href={currentLocale === 'en' ? route.path : `/${currentLocale}${route.path}`}
+              key={nav.path}
+              href={currentLocale === 'en' ? nav.path : `/${currentLocale}${nav.path}`}
               className={`block px-3 py-2 rounded-md text-base font-medium ${
-                isActive(route.path)
+                isActive(nav.path)
                   ? 'bg-blue-50 text-blue-700'
                   : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
               }`}
               onClick={() => setIsMenuOpen(false)}
             >
-              {route.name}
+              {nav.name}
             </Link>
           ))}
         </div>
