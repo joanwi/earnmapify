@@ -26,15 +26,15 @@
     "noData": "No data available"
   },
   "home": {
-    "title": "Discover High-Traffic Websites",
-    "subtitle": "Explore profitable websites across different categories and platforms",
+    "heroTitle": "EarnMapify - Discover Top High-Traffic Websites for Profit",
+    "heroDescription": "Discover top high-traffic websites on EarnMapify. Explore paid sites, platform subs, industry leaders, and income trends to find profitable opportunities now!",
     "recentUpdates": "Recent Updates",
     "exploreSections": "Explore Sections"
   },
   "moneyMakingSites": {
     "loading": "Loading...",
     "title": "Money Making Sites",
-    "description": "Discover high-traffic websites in payment platforms like PayPal and Stripe",
+    "description": "Discover high-traffic websites on paid platforms like PayPal and Stripe to maximize your revenue",
     "dataSource": "Data source: Similarweb",
     "updateFrequency": "Updated monthly",
     "paypal": "PayPal",
@@ -43,12 +43,12 @@
   },
   "platformSubsites": {
     "title": "Platform Subsites",
-    "description": "Explore new and trending websites on platforms like .vercel.app and .github.io",
+    "description": "Explore high-traffic subdomains on GitHub and Vercel to boost your project’s growth and engagement.",
     "selectPlatform": "Select Platform"
   },
   "categorySites": {
     "title": "Category Sites",
-    "description": "Find top performing websites in gaming and tools categories",
+    "description": "Find the top 1000 websites in gaming, tools, and more, driving trends and innovation.  ",
     "games": "Games",
     "tools": "Tools"
   },
