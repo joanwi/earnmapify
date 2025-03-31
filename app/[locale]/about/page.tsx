@@ -36,8 +36,8 @@ export default function AboutPage() {
           <h2 className="text-xl font-semibold text-gray-900 mt-8 mb-4">{t('contact.title')}</h2>
           <p>
             {t('contact.description')}
-            <a href="mailto:info@makemoneyweb.com" className="text-blue-600 hover:underline ml-1">
-              info@makemoneyweb.com
+            <a href="mailto:info@earnmapify.com" className="text-blue-600 hover:underline ml-1">
+              info@earnmapify.com
             </a>
           </p>
         </div>
