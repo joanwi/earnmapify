@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
 import { getLocale, getTranslations } from 'next-intl/server';
 import ADCalculator from "./industry-leaders/ADCalculator"      
 import TopPidTable from "./top-paid-sites/TopPidTable";
@@ -10,22 +10,17 @@ export default async function HomePage() {
   const t = await getTranslations();
   const currentLocale = await getLocale();
 
-  // 获取初始数据
   const [moneySites, platformSubs, industryLeaders] = await Promise.all([
     getTopPaidSites(),
     getPlatformData(),
     getIndustryLeaders()
   ]);
 
-  const getLocalizedPath = (path: string) => {
-    return currentLocale === 'en' ? path : `/${currentLocale}${path}`;
-  };
-
   const sections = [
     {
       id: 'top-paid-sites',
-      title: t('navigation.moneyMakingSites'),
-      description: t('moneyMakingSites.description'),
+      title: t('nav.topPaidSites'),
+      description: t('home.paidSitesDescription'),
       path: '/top-paid-sites',
       icon: (
         <svg className="h-10 w-10 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -35,8 +30,8 @@ export default async function HomePage() {
     },
     {
       id: 'platform-subsites',
-      title: t('navigation.platformSubsites'),
-      description: t('platformSubsites.description'),
+      title: t('nav.topPlatformSubs'),
+      description: t('home.platformDescription'),
       path: '/top-platform-subs',
       icon: (
         <svg className="h-10 w-10 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -46,8 +41,8 @@ export default async function HomePage() {
     },
     {
       id: 'industry-leaders',
-      title: t('navigation.categorySites'),
-      description: t('categorySites.description'),
+      title: t('nav.industryLeaders'),
+      description: t('home.industryDescription'),
       path: '/industry-leaders',
       icon: (
         <svg className="h-10 w-10 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -81,7 +76,7 @@ export default async function HomePage() {
           {sections.map((section) => (
             <div key={section.id} className="grid grid-cols-1 lg:grid-cols-4 gap-6">
               {/* 左侧卡片 */}
-              <Link href={getLocalizedPath(section.path)} className="lg:col-span-1">
+              <Link href={section.path} className="lg:col-span-1">
                 <div className="group relative bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 h-[400px]">
                   <div className="p-8">
                     <div className="flex justify-center">
@@ -95,7 +90,7 @@ export default async function HomePage() {
                   <div className="absolute bottom-0 w-full p-4 border-t border-gray-200 bg-gray-50">
                     <div className="flex items-center justify-center">
                       <span className="text-sm font-medium text-blue-600 group-hover:text-blue-700">
-                        {t('common.viewAll')}
+                        {t('home.viewAll')}
                       </span>
                       <svg className="ml-1 h-5 w-5 text-blue-600 group-hover:text-blue-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                         <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
@@ -108,12 +103,12 @@ export default async function HomePage() {
               {/* 右侧数据预览 */}
               <div className="lg:col-span-3 bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
                 <div className="p-4 border-b border-gray-200 flex justify-between items-center">
-                  <h4 className="text-lg font-medium text-gray-900">Latest Data</h4>
+                  <h4 className="text-lg font-medium text-gray-900">{t('home.latestData')}</h4>
                   <Link 
-                    href={getLocalizedPath(section.path)}
+                      href={section.path}
                     className="text-sm text-blue-600 hover:text-blue-700 flex items-center"
                   >
-                    View Full Page
+                    {t('home.viewFullPage')}
                     <svg className="ml-1 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                       <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
                     </svg>
@@ -140,14 +135,14 @@ export default async function HomePage() {
                 </svg>
                 <div>
                   <p className="text-sm font-medium text-gray-900">
-                    {t('common.updatedOn')}: {new Date().toLocaleDateString(currentLocale, {
+                    {t('home.updatedOn')}: {new Date().toLocaleDateString(currentLocale, {
                       year: 'numeric',
                       month: 'long',
                       day: 'numeric',
                     })}
                   </p>
                   <p className="text-sm text-gray-600">
-                    {t('moneyMakingSites.title')} & {t('categorySites.title')} {t('common.updatedOn').toLowerCase()}
+                    {t('nav.topPaidSites')} & {t('nav.topPlatformSubs')} {t('home.updatedOn').toLowerCase()}
                   </p>
                 </div>
               </div>

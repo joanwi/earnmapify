@@ -3,12 +3,14 @@
 import { useState, useEffect } from "react"
 import { ArrowDown, ArrowUp, ChevronDown, ChevronLeft, ChevronRight, ChevronUp, ExternalLink } from "lucide-react"
 import type { PlatformSubs } from "@/lib/types"
-
+import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 interface PlatformSubsTableProps {
   initialData: PlatformSubs[]
 }
 
-export default function PlatformSubsTable({ initialData }: PlatformSubsTableProps) {
+export default function PlatformSubsTable({ initialData }: PlatformSubsTableProps) {  
+  const t = useTranslations('platformTable');
   const [platformSubs] = useState<PlatformSubs[]>(initialData)
   const [data, setData] = useState<PlatformSubs[]>([])
   const [platform, setPlatform] = useState<string>("vercel.app")
@@ -275,7 +277,7 @@ export default function PlatformSubsTable({ initialData }: PlatformSubsTableProp
             }}
             title="Trending"
           >
-            Trending
+            {t('trending')}
           </button>
           <button
             className={`px-4 py-2 cursor-pointer hover:bg-blue-100 ${viewMode === "new" ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-white"}`}
@@ -286,7 +288,7 @@ export default function PlatformSubsTable({ initialData }: PlatformSubsTableProp
             }}
             title="New Clicks"
           >
-            New Clicks
+            {t('newClicks')}
           </button>
         </div>
       </div>
@@ -299,17 +301,19 @@ export default function PlatformSubsTable({ initialData }: PlatformSubsTableProp
               <th className="w-1/4 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">URL</th>
               <th className="w-1/4 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer" onClick={() => handleSort("clicks")}>
                 <div className="flex items-center">
-                  Clicks
+                  {t('clicks')}
                   {getSortIcon("clicks")}
                 </div>
               </th>
               <th className="w-1/4 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer" onClick={() => handleSort("change")}>
                 <div className="flex items-center">
-                  Change
+                  {t('change')}
                   {getSortIcon("change")}
                 </div>
               </th>
-              <th className="w-1/4 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Top Keyword</th>
+              <th className="w-1/4 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                {t('topKeyword')}
+              </th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
@@ -346,7 +350,7 @@ export default function PlatformSubsTable({ initialData }: PlatformSubsTableProp
                       <span className="truncate">{site.topKeyword}</span>
                       <ExternalLink className="h-4 w-4 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
                       <span className="absolute -top-8 left-0 bg-gray-800 text-white text-xs rounded py-1 px-2 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
-                        Go to Google SERP for the keyword
+                        {t('googleSERP')}
                       </span>
                     </div>
                   </td>

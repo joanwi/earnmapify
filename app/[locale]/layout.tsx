@@ -1,10 +1,14 @@
 import { Metadata } from 'next';
-import { NextIntlClientProvider } from 'next-intl';
-import { locales } from '@/i18n'; 
+import { NextIntlClientProvider, hasLocale } from 'next-intl';
+import { routing } from '@/i18n/routing';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import '../globals.css';
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { notFound } from 'next/navigation';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({ subsets: ["latin"] })
 
 
 export const metadata: Metadata = {
@@ -13,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+  return routing.locales.map((locale) => ({ locale }));
 }
 
 export default async function LocaleLayout({
@@ -24,11 +28,14 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const {locale}=await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
   
   return (
     <html lang={locale}>
-      <body className="min-h-screen bg-gray-50 flex flex-col">
-        <NextIntlClientProvider locale={locale}>
+      <body className={`${inter.className} min-h-screen bg-gray-50 flex flex-col`}> 
+        <NextIntlClientProvider>
           <Navbar />
           <main className="flex-grow">
             {children}

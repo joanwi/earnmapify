@@ -3,12 +3,14 @@
 import { useState, useEffect } from "react"
 import { ArrowDown, ArrowUp, ChevronDown, ChevronLeft, ChevronRight, ChevronUp } from "lucide-react"
 import type { MoneyMakingSite } from "@/lib/types"
+import { useTranslations } from "next-intl"
 
 interface MoneySitesTableProps {
   initialData: MoneyMakingSite[]
 }
 
 export default function TopPidTable({ initialData }: MoneySitesTableProps) {
+  const t = useTranslations('paidTable');
   const [moneyMakingSites] = useState<MoneyMakingSite[]>(initialData)
   const [data, setData] = useState<MoneyMakingSite[]>([])
   const [platform, setPlatform] = useState<string>("Stripe")
@@ -139,20 +141,15 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
   const getTrafficShareWidth = (trafficShare: string) => {
     try {
       if (!trafficShare) return 0;
-      
-      // 移除所有非数字和小数点字符
+
       const cleanValue = trafficShare.replace(/[^0-9.]/g, '');
       
-      // 解析为浮点数
       const value = parseFloat(cleanValue);
       
-      // 数值检查
       if (isNaN(value)) {
         console.error('无法解析trafficShare值:', trafficShare);
         return 0;
       }
-      
-      // 确保至少有0.5%的宽度，最大100%
       return Math.max(0.5, Math.min(value, 100));
     } catch (error) {
       console.error('处理trafficShare时出错:', error);
@@ -248,7 +245,7 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
               setSortDirection("desc")
             }}
           >
-            Newly Discovered
+            {t('newly')}
           </button>
           <button
             className={`px-4 py-2 ${viewMode === "trending" ? "bg-blue-500 text-white" : "bg-white"}`}
@@ -258,7 +255,7 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
               setSortDirection("desc")
             }}
           >
-            Trending Websites
+            {t('trending')}
           </button>
         </div>
       </div>
@@ -275,7 +272,7 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
                 onClick={() => handleSort('domain')}
               >
                 <div className="flex items-center">
-                  Domain
+                    {t('domain')}
                 </div>
               </th>
               <th 
@@ -285,7 +282,7 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
                 onClick={() => handleSort('industry')}
               >
                 <div className="flex items-center">
-                  Industry
+                  {t('industry')}
                 </div>
               </th>
               <th 
@@ -295,7 +292,7 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
                 onClick={() => handleSort('globalRank')}
               >
                 <div className="flex items-center">
-                  Global Rank
+                  {t('globalRank')}
                 </div>
               </th>
               <th 
@@ -305,7 +302,7 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
                 onClick={() => handleSort('trafficShare')}
               >
                 <div className="flex items-center">
-                  Traffic Share
+                  {t('trafficShare')}
                   {getSortIcon('trafficShare')}
                 </div>
               </th>
@@ -316,7 +313,7 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
                 onClick={() => handleSort('change')}
               >
                 <div className="flex items-center">
-                  Change
+                  {t('change')}
                   {getSortIcon('change')}
                 </div>
               </th>
@@ -326,7 +323,7 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
             {data.length === 0 ? (
               <tr>
                 <td colSpan={5} className="py-4 text-center text-sm text-gray-500">
-                  No data found
+                  {t('noDataFound')}
                 </td>
               </tr>
             ) : (
@@ -391,7 +388,7 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
                 currentPage === 1 ? "text-gray-300" : "text-gray-700 hover:bg-gray-50"
               }`}
             >
-              Previous
+              {t('previous')}
             </button>
             <button
               onClick={() => goToPage(currentPage + 1)}
@@ -400,15 +397,15 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
                 currentPage === totalPages ? "text-gray-300" : "text-gray-700 hover:bg-gray-50"
               }`}
             >
-              Next
+              {t('next')}
             </button>
           </div>
           <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
             <div>
               <p className="text-sm text-gray-700">
-                Showing <span className="font-medium">{(currentPage - 1) * itemsPerPage + 1}</span> to{" "}
-                <span className="font-medium">{Math.min(currentPage * itemsPerPage, filteredData.length)}</span> of{" "}
-                <span className="font-medium">{filteredData.length}</span> results
+                {t('showing')} <span className="font-medium">{(currentPage - 1) * itemsPerPage + 1}</span> {t('to')} {" "}
+                <span className="font-medium">{Math.min(currentPage * itemsPerPage, filteredData.length)}</span> {t('of')} {" "}
+                <span className="font-medium">{filteredData.length}</span> {t('results')}
               </p>
             </div>
             <div>
@@ -420,7 +417,7 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
                     currentPage === 1 ? "text-gray-300" : "text-gray-400 hover:bg-gray-50"
                   }`}
                 >
-                  <span className="sr-only">Previous</span>
+                  <span className="sr-only">{t('previous')}</span>
                   <ChevronLeft className="h-5 w-5" aria-hidden="true" />
                 </button>
 
@@ -461,7 +458,7 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
                     currentPage === totalPages ? "text-gray-300" : "text-gray-400 hover:bg-gray-50"
                   }`}
                 >
-                  <span className="sr-only">Next</span>
+                  <span className="sr-only">{t('next')}</span>
                   <ChevronRight className="h-5 w-5" aria-hidden="true" />
                 </button>
               </nav>

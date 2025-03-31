@@ -1,0 +1,160 @@
+{
+  "nav": {
+    "topPaidSites": "Sitios de Pago",
+    "topPlatformSubs": "Subdominios de Plataformas",
+    "industryLeaders": "Líderes del Sector",
+    "incomeTrends": "Tendencias de Ingresos"
+  },
+  "footer": {
+    "aboutDescription": "Proporcionamos información sobre sitios web de alto tráfico, ayudándote a encontrar oportunidades rentables en línea con EarnMapify.",
+    "quickLinks": "Enlaces Rápidos",
+    "topPaidSites": "Sitios de Pago",
+    "topPlatformSubs": "Subdominios de Plataformas",
+    "industryLeaders": "Líderes del Sector",
+    "incomeTrends": "Tendencias de Ingresos",
+    "resources": "Recursos",
+    "about": "Acerca de",
+    "api": "API",
+    "documentation": "Documentación",
+    "contact": "Contacto",
+    "email": "Correo",
+    "social": "Redes Sociales",
+    "twitter": "Twitter",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "legal": "Legal",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio",
+    "cookies": "Política de Cookies",
+    "rights": "Todos los derechos reservados"
+  },
+  "home": {
+    "heroTitle": "EarnMapify - Descubre Sitios Web Rentables de Alto Tráfico",
+    "heroDescription": "Descubre los mejores sitios web de alto tráfico en EarnMapify. ¡Explora sitios de pago, subdominios de plataformas, líderes del sector y tendencias de ingresos para encontrar oportunidades rentables ahora!",
+    "paidSitesDescription": "Descubre sitios web de alto tráfico en plataformas de pago como PayPal y Stripe",
+    "platformDescription": "Explora subdominios de alto tráfico en GitHub y Vercel para impulsar el crecimiento",
+    "industryDescription": "Encuentra los 1000 mejores sitios web en juegos, herramientas y más",
+    "viewAll": "Ver Todo",
+    "latestData": "Últimos Datos",
+    "viewFullPage": "Ver Página Completa",
+    "recentUpdates": "Actualizaciones Recientes",
+    "updatedOn": "Actualizado el"
+  },
+  "paidSites": {
+    "heroTitle": "Sitios de Pago Principales",
+    "heroDescription": "Descubre sitios web de alto tráfico en plataformas de pago"
+  },
+  "paidTable": {
+    "newly": "Recién Descubiertos",
+    "trending": "Tendencias",
+    "domain": "Dominio",
+    "industry": "Sector",
+    "globalRank": "Ranking Global",
+    "trafficShare": "Cuota de Tráfico",
+    "change": "Cambio",
+    "noDataFound": "No se encontraron datos",
+    "previous": "Anterior",
+    "next": "Siguiente",
+    "showing": "Mostrando",
+    "to": "a",
+    "of": "de",
+    "results": "resultados"
+  },
+  "revenueCalculator": {
+    "revenueCalculator": "Calculadora de Ingresos",
+    "monthlyTraffic": "Tráfico Mensual",
+    "trafficDescription": "Número de visitantes mensuales del sitio web objetivo a la plataforma de pago (K: miles, M: millones)",
+    "orderValue": "Valor Promedio del Pedido",
+    "orderValueDescription": "Precio típico del producto/servicio en la página de precios del sitio web objetivo",
+    "monthlyRevenue": "Ingresos Mensuales Estimados",
+    "revenueDescription": "Esta calculadora ayuda a estimar los ingresos mensuales potenciales de sitios web de suscripción/pago:",
+    "note": "Nota:",
+    "revenueNote": "Los ingresos reales pueden variar debido a pagos fallidos o cancelaciones. Estos datos son solo de referencia.",
+    "revenueFormula": "Fórmula: Visitantes Mensuales × Valor Promedio del Pedido"
+  },
+  "platformSubs": {
+    "heroTitle": "Principales Subdominios de Plataformas",
+    "heroDescription": "Descubre subdominios de alto tráfico en plataformas populares"
+  },
+  "platformTable": {
+    "trending": "Tendencias",
+    "newClicks": "Nuevos Clics",
+    "clicks": "Clics",
+    "change": "Cambio",
+    "topKeyword": "Palabra Clave Principal",
+    "googleSERP": "Ver resultados en Google"
+  },
+  "industryLeaders": {
+    "heroTitle": "Líderes del Sector",
+    "heroDescription": "Descubre los sitios web más exitosos en juegos y herramientas"
+  },
+  "industryLeadersTable": {
+    "games": "Juegos",
+    "tools": "Herramientas",
+    "domain": "Dominio",
+    "trafficShare": "Cuota de Tráfico",
+    "momChange": "Cambio Mensual",
+    "countryRank": "Ranking por País",
+    "monthlyVisits": "Visitas Mensuales",
+    "uniqueVisitors": "Visitantes Únicos",
+    "desktop": "Escritorio",
+    "mobile": "Móvil",
+    "showing": "Mostrando",
+    "to": "a",
+    "of": "de",
+    "results": "resultados"
+  },
+  "adCalculator": {
+    "title": "Calculadora de Ingresos por Publicidad",
+    "monthlyVisits": "Visitas Mensuales (Visitantes Únicos)",
+    "pagesPerVisit": "Páginas por Visita (Promedio)",
+    "adPerPage": "Anuncios por Página",
+    "cpm": "CPM ($)",
+    "reference": "Aquí hay algunos rangos de referencia aproximados: EE.UU.: $5-$10; Canadá: $4-$8; Reino Unido: $4-$8; Australia: $4-$8; Alemania: $3-$7; Francia: $3-$6; Japón: $2-$5; India: $0,5-$2; Brasil: $0,5-$2; China: $0,5-$2.",
+    "estimatedRevenue": "Ingresos Mensuales Estimados por Publicidad:",
+    "note": "Nota:",
+    "adNote": "El CPM real depende del contenido de tu sitio web, audiencia y tipos de anuncios. Para datos precisos, utiliza las herramientas de informes de Google AdSense.",
+    "formula": "Fórmula:",
+    "formula2": "Visitas Mensuales × Páginas por Visita × Anuncios por Página × CPM ÷ 1000"
+  },
+  "incomeTrends": {
+    "heroTitle": "Tendencias de Ingresos 2025: Análisis de Ingresos y Popularidad",
+    "heroDescription": "Explora las tendencias de ingresos de 2025 con los ingresos de las mejores herramientas de IA de Toolify, insights de Product Hunt y modelos populares de Hugging Face.",
+    "toolify": "Toolify: Análisis de Ingresos de Herramientas IA",
+    "toolifyDescription": "Ranking de ingresos de IA basado en clasificaciones de sitios web de IA en plataformas de pago y tráfico mensual real.",
+    "productHunt": "Product Hunt: Tendencias de Rankings Mensuales y Semanales",
+    "productHuntDescription": "Product Hunt selecciona los mejores productos nuevos cada día. Descubre las últimas apps móviles, sitios web y productos tecnológicos más comentados.",
+    "indieHackers": "Indie Hackers - Proyectos Rentables",
+    "indieHackersDescription": "Descubre cientos de negocios, startups y proyectos paralelos que generan ingresos en línea, y aprende cómo llegaron hasta donde están.",
+    "huggingFace": "Hugging Face: Modelos Más Descargados y Populares",
+    "huggingFaceDescription": "Estamos en un viaje para avanzar y democratizar la inteligencia artificial a través del código abierto y la ciencia abierta.",
+    "googleTrends": "Google Trends: Lo Más Buscado en 2025",
+    "googleTrendsDescription": "Explora las últimas tendencias de búsqueda con información en tiempo real. Esta página muestra dinámicamente lo que la gente está buscando actualmente."
+  },
+  "about": {
+    "h1": "Sobre Nosotros",
+    "p1": "Bienvenido a EarnMapify, tu guía completa para entender y seguir los negocios en línea exitosos y las oportunidades de ingresos. Nuestra plataforma proporciona información detallada sobre diversas estrategias de monetización y patrones de éxito en diferentes sectores.",
+    "dataSources": {
+      "title": "Fuentes de Datos",
+      "description": "Los datos presentados en este sitio web se recopilan de múltiples fuentes:",
+      "sources": {
+        "similarweb": "Similarweb para datos de tráfico y análisis",
+        "public": "Datos públicos de plataformas como GitHub, Product Hunt y más"
+      }
+    },
+    "updateFrequency": {
+      "title": "Frecuencia de Actualización",
+      "description": "Nuestros datos se actualizan según el siguiente calendario:",
+      "items": {
+        "topPaidSites": "Sitios de Pago: Mensual",
+        "platformSubsites": "Subdominios de Plataformas: Mensual",
+        "industryLeaders": "Líderes del Sector: Mensual",
+        "infoTrends": "Info y Tendencias: Semanal"
+      }
+    },
+    "contact": {
+      "title": "Contacto",
+      "description": "Para preguntas, sugerencias o correcciones de datos, contáctanos en:"
+    }
+  }
+}

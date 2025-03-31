@@ -1,78 +1,19 @@
 {
-  "navigation": {
-    "moneyMakingSites": "Geldverdienende Websites",
-    "platformSubsites": "Plattform-Unterwebsites",
-    "categorySites": "Kategorie-Websites",
-    "infoSites": "Info-Websites",
-    "about": "Über uns"
-  },
-  "common": {
-    "updatedOn": "Aktualisiert am",
-    "downloadCSV": "Als CSV herunterladen",
-    "downloadPDF": "Als PDF herunterladen",
-    "searchPlaceholder": "Suchen...",
-    "filterBy": "Filtern nach",
-    "showingResults": "Zeige {start}-{end} von {total} Ergebnissen",
-    "viewAll": "Alle anzeigen",
-    "topSites": "Top Websites",
-    "newSites": "Neue Websites",
-    "trendingSites": "Trending Websites",
-    "monthlyTraffic": "Monatlicher Traffic",
-    "trafficChange": "Traffic-Änderung",
-    "rank": "Rang",
-    "createdOn": "Erstellt am",
-    "visitDuration": "Besuchsdauer",
-    "loading": "Laden...",
-    "error": "Fehler beim Laden der Daten",
-    "noData": "Keine Daten verfügbar"
-  },
-  "home": {
-    "title": "Entdecken Sie hochfrequentierte Websites",
-    "subtitle": "Erkunden Sie profitable Websites in verschiedenen Kategorien und Plattformen",
-    "recentUpdates": "Neueste Aktualisierungen",
-    "exploreSections": "Kategorien erkunden"
-  },
-  "moneyMakingSites": {
-    "title": "Geldverdienende Websites",
-    "description": "Entdecken Sie hochfrequentierte Websites in Zahlungsplattformen wie PayPal und Stripe",
-    "dataSource": "Datenquelle: Similarweb",
-    "updateFrequency": "Monatlich aktualisiert",
-    "paypal": "PayPal",
-    "stripe": "Stripe"
-  },
-  "platformSubsites": {
-    "title": "Plattform-Unterwebsites",
-    "description": "Erkunden Sie neue und trendende Websites auf Plattformen wie .vercel.app und .github.io",
-    "selectPlatform": "Plattform auswählen"
-  },
-  "categorySites": {
-    "title": "Kategorie-Websites",
-    "description": "Finden Sie Top-Websites in den Kategorien Gaming und Tools",
-    "games": "Spiele",
-    "tools": "Tools"
-  },
-  "infoSites": {
-    "title": "Info-Websites",
-    "description": "Bleiben Sie über Trends von Product Hunt, GitHub und mehr informiert",
-    "productHunt": "Product Hunt",
-    "github": "GitHub",
-    "huggingFace": "Hugging Face",
-    "googleTrends": "Google Trends"
-  },
-  "about": {
-    "title": "Über dieses Projekt",
-    "description": "Diese Website bietet Analysen und Rankings für verschiedene Arten von Websites, um Ihnen zu helfen, Trends und Chancen zu entdecken."
+  "nav": {
+    "topPaidSites": "Top-Bezahlseiten",
+    "topPlatformSubs": "Top-Plattform-Subdomains",
+    "industryLeaders": "Branchenführer",
+    "incomeTrends": "Einkommenstrends"
   },
   "footer": {
-    "aboutUs": "Über uns",
-    "aboutDescription": "Wir bieten Einblicke in hochfrequentierte Websites und Online-Geschäftsmöglichkeiten",
-    "quickLinks": "Schnelllinks",
-    "moneyMaking": "Geldverdienende Websites",
-    "platforms": "Plattform-Unterwebsites",
-    "categories": "Kategorie-Websites",
-    "info": "Info-Websites",
+    "aboutDescription": "Wir bieten Einblicke in hochfrequentierte Websites und helfen Ihnen, profitable Online-Möglichkeiten mit EarnMapify zu finden.",
+    "quickLinks": "Schnellzugriff",
+    "topPaidSites": "Top-Bezahlseiten",
+    "topPlatformSubs": "Top-Plattform-Subdomains",
+    "industryLeaders": "Branchenführer",
+    "incomeTrends": "Einkommenstrends",
     "resources": "Ressourcen",
-    "blog": "Blog",
+    "about": "Über uns",
     "api": "API",
     "documentation": "Dokumentation",
     "contact": "Kontakt",
@@ -82,8 +23,138 @@
     "github": "GitHub",
     "linkedin": "LinkedIn",
     "legal": "Rechtliches",
-    "privacy": "Datenschutzerklärung",
+    "privacy": "Datenschutz",
     "terms": "Nutzungsbedingungen",
-    "cookies": "Cookie-Richtlinie"
+    "cookies": "Cookie-Richtlinie",
+    "rights": "Alle Rechte vorbehalten"
+  },
+  "home": {
+    "heroTitle": "EarnMapify - Entdecken Sie profitable Websites mit hoher Reichweite",
+    "heroDescription": "Entdecken Sie Top-Websites mit hoher Reichweite auf EarnMapify. Erkunden Sie Bezahlseiten, Plattform-Subdomains, Branchenführer und Einkommenstrends, um profitable Möglichkeiten zu finden!",
+    "paidSitesDescription": "Entdecken Sie hochfrequentierte Websites auf Zahlungsplattformen wie PayPal und Stripe",
+    "platformDescription": "Erkunden Sie hochfrequentierte Subdomains auf GitHub und Vercel für mehr Projektwachstum",
+    "industryDescription": "Finden Sie die Top 1000 Websites in Gaming, Tools und mehr",
+    "viewAll": "Alle anzeigen",
+    "latestData": "Aktuelle Daten",
+    "viewFullPage": "Vollständige Seite",
+    "recentUpdates": "Neueste Updates",
+    "updatedOn": "Aktualisiert am"
+  },
+  "paidSites": {
+    "heroTitle": "Top-Bezahlseiten",
+    "heroDescription": "Entdecken Sie hochfrequentierte Websites auf Zahlungsplattformen"
+  },
+  "paidTable": {
+    "newly": "Neu entdeckt",
+    "trending": "Im Trend",
+    "domain": "Domain",
+    "industry": "Branche",
+    "globalRank": "Globales Ranking",
+    "trafficShare": "Traffic-Anteil",
+    "change": "Änderung",
+    "noDataFound": "Keine Daten gefunden",
+    "previous": "Zurück",
+    "next": "Weiter",
+    "showing": "Anzeige",
+    "to": "bis",
+    "of": "von",
+    "results": "Ergebnissen"
+  },
+  "revenueCalculator": {
+    "revenueCalculator": "Umsatzrechner",
+    "monthlyTraffic": "Monatliche Besucher",
+    "trafficDescription": "Die Anzahl der monatlichen Besucher von der Zielwebsite zur Zahlungsplattform (K: Tausend, M: Millionen)",
+    "orderValue": "Durchschnittlicher Bestellwert",
+    "orderValueDescription": "Der typische Preis des Produkts/der Dienstleistung auf der Preisseite der Zielwebsite",
+    "monthlyRevenue": "Geschätzter Monatsumsatz",
+    "revenueDescription": "Dieser Rechner hilft bei der Schätzung des potenziellen Monatsumsatzes von Abonnement-/Zahlungswebsites:",
+    "note": "Hinweis:",
+    "revenueNote": "Der tatsächliche Umsatz kann aufgrund von nicht erfolgreichen Zahlungen oder Stornierungen abweichen. Diese Daten dienen nur als Referenz.",
+    "revenueFormula": "Formel: Monatliche Zahlungsseiten-Besucher × Durchschnittlicher Bestellwert"
+  },
+  "platformSubs": {
+    "heroTitle": "Top-Plattform-Subdomains",
+    "heroDescription": "Entdecken Sie hochfrequentierte Subdomains auf beliebten Hosting-Plattformen"
+  },
+  "platformTable": {
+    "trending": "Im Trend",
+    "newClicks": "Neue Klicks",
+    "clicks": "Klicks",
+    "change": "Änderung",
+    "topKeyword": "Top-Keyword",
+    "googleSERP": "Google-Suchergebnisse anzeigen"
+  },
+  "industryLeaders": {
+    "heroTitle": "Branchenführer",
+    "heroDescription": "Entdecken Sie die erfolgreichsten Websites in den Kategorien Spiele und Tools"
+  },
+  "industryLeadersTable": {
+    "games": "Spiele",
+    "tools": "Tools",
+    "domain": "Domain",
+    "trafficShare": "Traffic-Anteil",
+    "momChange": "MzM Änderung",
+    "countryRank": "Länderranking",
+    "monthlyVisits": "Monatliche Besuche",
+    "uniqueVisitors": "Einzelbesucher",
+    "desktop": "Desktop",
+    "mobile": "Mobil",
+    "showing": "Anzeige",
+    "to": "bis",
+    "of": "von",
+    "results": "Ergebnissen"
+  },
+  "adCalculator": {
+    "title": "Monatlicher Werbeeinnahmen-Rechner",
+    "monthlyVisits": "Monatliche Besuche (Einzelbesucher)",
+    "pagesPerVisit": "Seiten pro Besuch (Durchschnitt)",
+    "adPerPage": "Anzeigen pro Seite",
+    "cpm": "Tausender-Kontakt-Preis ($)",
+    "reference": "Hier sind einige grobe Referenzbereiche: USA: $5-$10; Kanada: $4-$8; UK: $4-$8; Australien: $4-$8; Deutschland: $3-$7; Frankreich: $3-$6; Japan: $2-$5; Indien: $0,5-$2; Brasilien: $0,5-$2; China: $0,5-$2.",
+    "estimatedRevenue": "Geschätzte monatliche Werbeeinnahmen:",
+    "note": "Hinweis:",
+    "adNote": "Der tatsächliche TKP basiert auf Ihren Website-Inhalten, Zielgruppe und Werbetypen. Für genaue Daten nutzen Sie bitte Google AdSense Reporting-Tools.",
+    "formula": "Formel:",
+    "formula2": "Monatliche Besuche × Seiten pro Besuch × Anzeigen pro Seite × TKP ÷ 1000"
+  },
+  "incomeTrends": {
+    "heroTitle": "Einkommenstrends 2025: Umsatz- und Popularitätseinblicke",
+    "heroDescription": "Erkunden Sie die Einkommenstrends 2025 mit Top-KI-Tools-Umsätzen von Toolify, Product Hunt Ranglisten und beliebten Hugging Face Modellen.",
+    "toolify": "Toolify: KI-Tools Umsatzeinblicke",
+    "toolifyDescription": "KI-Umsatzranking basierend auf KI-Website-Rankings auf Zahlungsplattformen und tatsächlichem monatlichen Traffic.",
+    "productHunt": "Product Hunt: Monats- und Wochenranglisten-Trends",
+    "productHuntDescription": "Product Hunt kuratiert täglich die besten neuen Produkte. Entdecken Sie die neuesten mobilen Apps, Websites und Technologieprodukte im Gespräch.",
+    "indieHackers": "Indie Hackers - Erfolgreiche Projekte",
+    "indieHackersDescription": "Entdecken Sie Hunderte von Unternehmen, Startups und Nebenprojekten, die online Geld verdienen, und erfahren Sie, wie sie dorthin gekommen sind.",
+    "huggingFace": "Hugging Face: Meistgenutzte & beliebte Modelle",
+    "huggingFaceDescription": "Wir setzen uns für die Weiterentwicklung und Demokratisierung künstlicher Intelligenz durch Open Source und Open Science ein.",
+    "googleTrends": "Google Trends: Was ist hot in 2025",
+    "googleTrendsDescription": "Erkunden Sie die aktuellsten Suchtrends mit Echtzeit-Einblicken. Diese Seite zeigt dynamisch, wonach Menschen aktuell suchen."
+  },
+  "about": {
+    "h1": "Über uns",
+    "p1": "Willkommen bei EarnMapify, Ihrem umfassenden Leitfaden zum Verständnis und zur Verfolgung erfolgreicher Online-Geschäfte und Einkommensmöglichkeiten. Unsere Plattform bietet detaillierte Einblicke in verschiedene Monetarisierungsstrategien und Erfolgsmuster in unterschiedlichen Branchen.",
+    "dataSources": {
+      "title": "Datenquellen",
+      "description": "Die auf dieser Website präsentierten Daten stammen aus verschiedenen Quellen:",
+      "sources": {
+        "similarweb": "Similarweb für Traffic- und Analysedaten",
+        "public": "Öffentliche Daten von Plattformen wie GitHub, Product Hunt und mehr"
+      }
+    },
+    "updateFrequency": {
+      "title": "Aktualisierungshäufigkeit",
+      "description": "Unsere Daten werden nach folgendem Zeitplan aktualisiert:",
+      "items": {
+        "topPaidSites": "Top-Bezahlseiten: Monatlich",
+        "platformSubsites": "Top-Plattform-Subdomains: Monatlich",
+        "industryLeaders": "Branchenführer: Monatlich",
+        "infoTrends": "Info & Trends: Wöchentlich"
+      }
+    },
+    "contact": {
+      "title": "Kontakt",
+      "description": "Für Fragen, Anregungen oder Datenkorrekturen kontaktieren Sie uns bitte unter:"
+    }
   }
-} 
+}

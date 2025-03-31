@@ -2,8 +2,10 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 export default function RevenueCalculator() {
+  const t = useTranslations('revenueCalculator');
   const [traffic, setTraffic] = useState('');
   const [trafficUnit, setTrafficUnit] = useState('K');
   const [orderValue, setOrderValue] = useState('');
@@ -21,17 +23,17 @@ export default function RevenueCalculator() {
 
   return (
     <div className="mb-6 px-6 bg-white rounded-lg shadow">
-      <h2 className="text-xl font-semibold mb-4">Revenue Calculator</h2>
+      <h2 className="text-xl font-semibold mb-4">{t('revenueCalculator')}</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center">
-            Monthly Traffic
+            {t('monthlyTraffic')}
             <span className="ml-1 group relative">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover:block w-64 px-4 py-2 bg-gray-900 text-white text-sm rounded-lg shadow-lg">
-                The number of monthly visitors from the target website to the payment platform (such as Stripe/PayPal).(K: thousands, M: millions)
+                {t('trafficDescription')}
                 <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-2 h-2 bg-gray-900 rotate-45"></div>
               </div>
             </span>
@@ -58,13 +60,13 @@ export default function RevenueCalculator() {
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center">
-            Average Order Value
+            {t('orderValue')}
             <span className="ml-1 group relative">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover:block w-64 px-4 py-2 bg-gray-900 text-white text-sm rounded-lg shadow-lg">
-                The typical price of the product/service on the pricing page of the target website (you can check the pricelist on the target website)
+                {t('orderValueDescription')}
                 <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-2 h-2 bg-gray-900 rotate-45"></div>
               </div>
             </span>
@@ -87,16 +89,16 @@ export default function RevenueCalculator() {
 
       <div className="mt-2 p-2 bg-blue-50 rounded-md">
         <h2 className="text-2x text-blue-700">
-          Estimated Monthly Revenue: <span className="font-semibold">${calculateRevenue().toLocaleString()}</span>
+          {t('monthlyRevenue')}: <span className="font-semibold">${calculateRevenue().toLocaleString()}</span>
         </h2>
       </div>
       <div className="mt-2 text-sm text-gray-600">    
         <p>
-          This calculator can help estimate the potential monthly revenue of subscription/payment websites:
+          {t('revenueDescription')}
         </p>
-        <strong>Note:</strong> The actual revenue may have some errors, such as unsuccessful payment or visitor cancellation; this data is for reference only, if you have any questions, please feel free to leave a message to communicate.
+        <strong>{t('note')}</strong> {t('revenueNote')}
         <p>
-          Formula: Monthly Payment Page Visitors × Average Order Value
+          {t('revenueFormula')}
         </p>
       </div>
     </div>

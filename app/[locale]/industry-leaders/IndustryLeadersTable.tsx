@@ -3,12 +3,14 @@
 import { useState, useEffect } from "react"
 import { ArrowDown, ArrowUp, ChevronDown, ChevronLeft, ChevronRight, ChevronUp } from "lucide-react"
 import type { IndustryLeader } from "@/lib/types"
+import { useTranslations } from "next-intl";
 
 interface IndustryLeadersTableProps {
   initialData: IndustryLeader[]
 }
 
 export default function IndustryLeadersTable({ initialData }: IndustryLeadersTableProps) {
+  const t = useTranslations('industryLeadersTable');
   const [data, setData] = useState<IndustryLeader[]>([])
   const [industry, setIndustry] = useState<string>("games") // 默认行业为 games
   const [currentPage, setCurrentPage] = useState<number>(1)
@@ -159,7 +161,7 @@ export default function IndustryLeadersTable({ initialData }: IndustryLeadersTab
               setSortDirection("desc")
             }}
           >
-            Games
+            {t('games')}
           </button>
           <button
             className={`px-4 py-2 cursor-pointer hover:bg-blue-100 ${industry === "tools" ? "bg-blue-500 text-white hover:bg-blue-600" : "bg-white"}`}
@@ -169,7 +171,7 @@ export default function IndustryLeadersTable({ initialData }: IndustryLeadersTab
               setSortDirection("desc")
             }}
           >
-            Tools
+            {t('tools')}
           </button>
         </div>
       </div>
@@ -179,46 +181,48 @@ export default function IndustryLeadersTable({ initialData }: IndustryLeadersTab
         <table className="min-w-full bg-white border table-fixed">
           <thead>
             <tr className="bg-gray-100 border-b">
-              <th className="w-2/12 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Domain</th>
+              <th className="w-2/12 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                {t('domain')}
+              </th>
               <th className="w-1/12 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer" onClick={() => handleSort("trafficShare")}>
                 <div className="flex items-center">
-                  Traffic Share
+                  {t('trafficShare')}
                   {getSortIcon("trafficShare")}
                 </div>
               </th>
               <th className="w-1/12 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer" onClick={() => handleSort("momTrafficChange")}>
                 <div className="flex items-center">
-                  MoM Change
+                  {t('momChange')}
                   {getSortIcon("momTrafficChange")}
                 </div>
               </th>
               <th className="w-1/12 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer" onClick={() => handleSort("countryRank")}>
                 <div className="flex items-center">
-                  Country Rank
+                  {t('countryRank')}
                   {getSortIcon("countryRank")}
                 </div>
               </th>
               <th className="w-2/12 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer" onClick={() => handleSort("monthlyVisits")}>
                 <div className="flex items-center">
-                  Monthly Visits
+                  {t('monthlyVisits')}
                   {getSortIcon("monthlyVisits")}
                 </div>
               </th>
               <th className="w-2/12 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer" onClick={() => handleSort("uniqueVisitors")}>
                 <div className="flex items-center">
-                  Unique Visits
+                  {t('uniqueVisitors')}
                   {getSortIcon("uniqueVisitors")}
                 </div>
               </th>
               <th className="w-1/12 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer" onClick={() => handleSort("desktopShare")}>
                 <div className="flex items-center">
-                  Desktop
+                  {t('desktop')}
                   {getSortIcon("desktopShare")}
                 </div>
               </th>
               <th className="w-1/12 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer" onClick={() => handleSort("mobileShare")}>
                 <div className="flex items-center">
-                  Mobile
+                  {t('mobile')}
                   {getSortIcon("mobileShare")}
                 </div>
               </th>
@@ -273,9 +277,9 @@ export default function IndustryLeadersTable({ initialData }: IndustryLeadersTab
           <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
             <div>
               <p className="text-sm text-gray-700">
-                Showing <span className="font-medium">{(currentPage - 1) * itemsPerPage + 1}</span> to{" "}
-                <span className="font-medium">{Math.min(currentPage * itemsPerPage, filteredData.length)}</span> of{" "}
-                <span className="font-medium">{filteredData.length}</span> results
+                {t('showing')} <span className="font-medium">{(currentPage - 1) * itemsPerPage + 1}</span> {t('to')} {" "}
+                <span className="font-medium">{Math.min(currentPage * itemsPerPage, filteredData.length)}</span> {t('of')} {" "}
+                <span className="font-medium">{filteredData.length}</span> {t('results')}
               </p>
             </div>
             <div>

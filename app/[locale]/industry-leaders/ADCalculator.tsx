@@ -1,8 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 export default function ADCalculator() {
+  const t = useTranslations('adCalculator');
   const [clicks, setClicks] = useState('');
   const [clicksUnit, setClicksUnit] = useState('K');
   const [cpm, setCpm] = useState('');
@@ -24,11 +26,11 @@ export default function ADCalculator() {
 
   return (
     <div className="mb-4 px-6 bg-white rounded-lg shadow">
-      <h2 className="text-xl font-semibold mb-4">Monthly Ad Revenue Calculator</h2>
+      <h2 className="text-xl font-semibold mb-4">{t('title')}</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">  
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Monthly Visits(Unique Visitors)
+            {t('monthlyVisits')}
           </label>
           <div className="flex">
             <input
@@ -52,7 +54,7 @@ export default function ADCalculator() {
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Pages per Visit(Average)
+            {t('pagesPerVisit')}
           </label>
           <input
             type="number"
@@ -67,7 +69,7 @@ export default function ADCalculator() {
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
-            Ads per Page(AD units displayed per page)
+            {t('adPerPage')}
           </label>
           <input
             type="number"
@@ -81,13 +83,13 @@ export default function ADCalculator() {
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2 flex items-center">
-            CPM ($)
+            {t('cpm')}
             <span className="ml-1 group relative">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 hidden group-hover:block w-64 px-4 py-2 bg-gray-900 text-white text-sm rounded-lg shadow-lg">
-              Here are some rough reference ranges, US: $5 - $10 ; Canada: $4 - $8; UK: $4 - $8; Australia: $4 - $8; Germany: $3 - $7; France: $3 - $6; Japan: $2 - $5; India: $0.5 - $2; Brazil: $0.5 - $2; China: $0.5 - $2.  
+                {t('reference')}
                 <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-2 h-2 bg-gray-900 rotate-45"></div>
               </div>
             </span>
@@ -112,14 +114,14 @@ export default function ADCalculator() {
 
       <div className="mt-2 p-2 bg-blue-50 rounded-md">
         <h2 className="text-2x text-blue-700">
-          Estimated Monthly Ad Revenue: <span className="font-semibold">${calculateRevenue().toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+          {t('estimatedRevenue')} <span className="font-semibold">${calculateRevenue().toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
         </h2>
       </div>
 
       <div className="mt-2 text-sm text-gray-600">
-        <p><strong>Note:</strong> Actual CPM based on your website content, audience, and ad types. For accurate data, use Google AdSense reporting tools.</p>
+        <p><strong>{t('note')}</strong> {t('adNote')}</p>
         <p>
-          <strong>Formula:</strong> Monthly Visits  × Pages per Visit× Ads per Page × CPM ÷ 1000
+          <strong>{t('formula')}</strong> {t('formula2')}
         </p>
       </div>
     </div>

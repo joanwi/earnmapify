@@ -1,89 +1,160 @@
 {
-  "navigation": {
-    "moneyMakingSites": "赚钱类网站",
-    "platformSubsites": "平台子站",
-    "categorySites": "类别站",
-    "incomeTrends": "资讯类",
-    "about": "关于我们"
-  },
-  "common": {
-    "updatedOn": "更新于",
-    "downloadCSV": "下载为CSV",
-    "downloadPDF": "下载为PDF",
-    "searchPlaceholder": "搜索...",
-    "filterBy": "筛选条件",
-    "showingResults": "显示 {start}-{end}，共 {total} 条结果",
-    "viewAll": "查看全部",
-    "topSites": "热门网站",
-    "newSites": "新增网站",
-    "trendingSites": "趋势网站",
-    "monthlyTraffic": "月访问量",
-    "trafficChange": "流量变化",
-    "rank": "排名",
-    "createdOn": "创建于",
-    "visitDuration": "访问时长",
-    "loading": "加载中...",
-    "error": "加载数据时出错",
-    "noData": "暂无数据"
-  },
-  "home": {
-    "title": "发现高流量网站",
-    "subtitle": "探索不同类别和平台的盈利网站",
-    "recentUpdates": "最新更新",
-    "exploreSections": "探索分类"
-  },
-  "moneyMakingSites": {
-    "title": "赚钱类网站",
-    "description": "发现 PayPal 和 Stripe 等支付平台中的高流量网站",
-    "dataSource": "数据来源：Similarweb",
-    "updateFrequency": "每月更新",
-    "paypal": "PayPal",
-    "stripe": "Stripe"
-  },
-  "platformSubsites": {
-    "title": "平台子站",
-    "description": "探索 .vercel.app 和 .github.io 等平台上的新站和热门网站",
-    "selectPlatform": "选择平台"
-  },
-  "categorySites": {
-    "title": "类别站",
-    "description": "查找游戏和工具类别的顶级网站",
-    "games": "游戏",
-    "tools": "工具"
-  },
-  "infoSites": {
-    "title": "资讯类",
-    "description": "及时了解 Product Hunt、GitHub 等平台的趋势",
-    "productHunt": "Product Hunt",
-    "github": "GitHub",
-    "huggingFace": "Hugging Face",
-    "googleTrends": "Google趋势"
-  },
-  "about": {
-    "title": "关于本项目",
-    "description": "本网站提供各类网站的分析和排名，帮助您发现趋势和机会。"
+  "nav": {
+    "topPaidSites": "付费网站排行",
+    "topPlatformSubs": "平台子站排名",
+    "industryLeaders": "行业领先者",
+    "incomeTrends": "收入趋势"
   },
   "footer": {
-    "aboutUs": "关于我们",
-    "aboutDescription": "我们提供高流量网站和在线商业机会的洞察",
-    "quickLinks": "快速链接",
-    "moneyMaking": "赚钱类网站",
-    "platforms": "平台子站",
-    "categories": "类别站",
-    "info": "资讯类",
-    "resources": "资源",
-    "blog": "博客",
-    "api": "API",
-    "documentation": "文档",
+    "aboutDescription": "EarnMapify为您提供高流量网站的深度分析，助您发现网络盈利机会。",
+    "quickLinks": "快速导航",
+    "topPaidSites": "付费网站排行",
+    "topPlatformSubs": "平台子站排名",
+    "industryLeaders": "行业领先者",
+    "incomeTrends": "收入趋势",
+    "resources": "资源中心",
+    "about": "关于我们",
+    "api": "API接口",
+    "documentation": "开发文档",
     "contact": "联系我们",
-    "email": "电子邮件",
+    "email": "邮箱",
     "social": "社交媒体",
     "twitter": "推特",
     "github": "GitHub",
     "linkedin": "领英",
-    "legal": "法律",
+    "legal": "法律条款",
     "privacy": "隐私政策",
     "terms": "服务条款",
-    "cookies": "Cookie 政策"
+    "cookies": "Cookie政策",
+    "rights": "版权所有"
+  },
+  "home": {
+    "heroTitle": "EarnMapify - 发掘高流量网站的盈利机会",
+    "heroDescription": "在EarnMapify上探索顶级高流量网站。深入了解付费站点、平台子站、行业领军者和收入趋势，立即发现盈利良机！",
+    "paidSitesDescription": "探索PayPal和Stripe等支付平台上的高流量网站，助您提升收入",
+    "platformDescription": "深入分析GitHub和Vercel上的高流量子域名，促进项目增长",
+    "industryDescription": "发现游戏、工具等领域排名前1000的网站，把握行业趋势",
+    "viewAll": "查看全部",
+    "latestData": "最新数据",
+    "viewFullPage": "查看完整页面",
+    "recentUpdates": "最近更新",
+    "updatedOn": "更新于"
+  },
+  "paidSites": {
+    "heroTitle": "付费网站排行",
+    "heroDescription": "探索PayPal和Stripe等支付平台上的高流量网站"
+  },
+  "paidTable": {
+    "newly": "最新发现",
+    "trending": "热门网站",
+    "domain": "域名",
+    "industry": "行业",
+    "globalRank": "全球排名",
+    "trafficShare": "流量份额",
+    "change": "变化",
+    "noDataFound": "暂无数据",
+    "previous": "上一页",
+    "next": "下一页",
+    "showing": "显示",
+    "to": "至",
+    "of": "共",
+    "results": "条结果"
+  },
+  "revenueCalculator": {
+    "revenueCalculator": "收入计算器",
+    "monthlyTraffic": "月访问量",
+    "trafficDescription": "目标网站到支付平台（如Stripe/PayPal）的月访问量（K：千，M：百万）",
+    "orderValue": "平均订单金额",
+    "orderValueDescription": "目标网站定价页面上产品/服务的典型价格（可查看目标网站的价目表）",
+    "monthlyRevenue": "预估月收入",
+    "revenueDescription": "此计算器可帮助估算订阅/支付类网站的潜在月收入：",
+    "note": "注意：",
+    "revenueNote": "实际收入可能存在误差，如支付失败或访客取消等；数据仅供参考，如有疑问欢迎留言交流。",
+    "revenueFormula": "计算公式：月支付页面访问量 × 平均订单金额"
+  },
+  "platformSubs": {
+    "heroTitle": "平台子站排名",
+    "heroDescription": "探索热门托管平台上的高流量子域名"
+  },
+  "platformTable": {
+    "trending": "趋势上升",
+    "newClicks": "新增点击",
+    "clicks": "点击量",
+    "change": "变化",
+    "topKeyword": "热门关键词",
+    "googleSERP": "查看Google搜索结果"
+  },
+  "industryLeaders": {
+    "heroTitle": "行业领军者",
+    "heroDescription": "发现游戏和工具类别中表现最佳的网站"
+  },
+  "industryLeadersTable": {
+    "games": "游戏",
+    "tools": "工具",
+    "domain": "域名",
+    "trafficShare": "流量份额",
+    "momChange": "环比变化",
+    "countryRank": "国家排名",
+    "monthlyVisits": "月访问量",
+    "uniqueVisitors": "独立访客",
+    "desktop": "桌面端",
+    "mobile": "移动端",
+    "showing": "显示",
+    "to": "至",
+    "of": "共",
+    "results": "条结果"
+  },
+  "adCalculator": {
+    "title": "月广告收入计算器",
+    "monthlyVisits": "月访问量（独立访客）",
+    "pagesPerVisit": "平均访问页数",
+    "adPerPage": "每页广告数（每页显示的广告单元）",
+    "cpm": "千次展示收益（$）",
+    "reference": "以下是一些粗略的参考范围：美国：$5-$10；加拿大：$4-$8；英国：$4-$8；澳大利亚：$4-$8；德国：$3-$7；法国：$3-$6；日本：$2-$5；印度：$0.5-$2；巴西：$0.5-$2；中国：$0.5-$2。",
+    "estimatedRevenue": "预估月广告收入：",
+    "note": "注意：",
+    "adNote": "实际CPM取决于您的网站内容、受众群体和广告类型。如需准确数据，请使用Google AdSense报告工具。",
+    "formula": "计算公式：",
+    "formula2": "月访问量 × 平均访问页数 × 每页广告数 × CPM ÷ 1000"
+  },
+  "incomeTrends": {
+    "heroTitle": "2025年收入趋势：收入与热度洞察",
+    "heroDescription": "探索2025年收入趋势，包括Toolify上的顶级AI工具收入、Product Hunt排行榜见解和热门Hugging Face模型。",
+    "toolify": "Toolify：AI工具收入洞察",
+    "toolifyDescription": "基于AI网站在支付平台的排名和实际月访问量的AI高收入排名。",
+    "productHunt": "Product Hunt：月度和周度排行趋势",
+    "productHuntDescription": "Product Hunt每天精选最佳新产品。发现最新的移动应用、网站和备受关注的科技产品。",
+    "indieHackers": "独立开发者 - 盈利项目展示",
+    "indieHackersDescription": "探索数百个在线盈利的企业、创业项目和副业，了解他们的成功之路。",
+    "huggingFace": "Hugging Face：最受欢迎模型",
+    "huggingFaceDescription": "我们致力于通过开源和开放科学推进和普及人工智能技术。",
+    "googleTrends": "Google趋势：2025年热点",
+    "googleTrendsDescription": "实时洞察最新搜索趋势。本页面动态展示当前人们关注的热点话题，从突发新闻到流行话题。"
+  },
+  "about": {
+    "h1": "关于我们",
+    "p1": "欢迎来到EarnMapify，这里是您了解和追踪成功在线业务与收入机会的综合指南。我们的平台为您提供各行业变现策略和成功模式的深度洞察。",
+    "dataSources": {
+      "title": "数据来源",
+      "description": "本网站的数据来自多个来源：",
+      "sources": {
+        "similarweb": "Similarweb提供的流量和分析数据",
+        "public": "来自GitHub、Product Hunt等平台的公开数据"
+      }
+    },
+    "updateFrequency": {
+      "title": "更新频率",
+      "description": "我们按以下时间表更新数据：",
+      "items": {
+        "topPaidSites": "付费网站排行：每月更新",
+        "platformSubsites": "平台子站排名：每月更新",
+        "industryLeaders": "行业领军者：每月更新",
+        "infoTrends": "资讯与趋势：每周更新"
+      }
+    },
+    "contact": {
+      "title": "联系我们",
+      "description": "如有问题、建议或数据更正，请通过以下邮箱联系我们："
+    }
   }
-} 
+}

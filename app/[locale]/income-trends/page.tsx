@@ -1,5 +1,4 @@
 import { getTranslations } from 'next-intl/server';
-import Link from 'next/link';
 import Image from 'next/image';
 import { Metadata } from 'next';
 
@@ -23,32 +22,32 @@ export default async function IncomeTrendsPage() {
 
   const pages = [
     {
-      title: 'Toolify: Best AI Tools Revenue Insights',
-      description: 'AI High Revenue Ranking based on AI website rankings on payment platforms and actual monthly traffic to the website.',
+      title: t('incomeTrends.toolify'),
+      description: t('incomeTrends.toolifyDescription'),
       image: '/toolify.png',
       href: 'https://www.toolify.ai/Best-AI-Tools-revenue'
     },
     {
-      title: 'Product Hunt: Monthly & Weekly Leaderboard Trends',
-      description: 'Product Hunt is a curation of the best new products, every day. Discover the latest mobile apps, websites, and technology products that everyone\'s talking about.',
+      title: t('incomeTrends.productHunt'),
+      description: t('incomeTrends.productHuntDescription'),
       image: '/producthunt.png',
       href: `https://www.producthunt.com/leaderboard/weekly/${currentWeek}`
     },
     {
-      title: 'Indie Hackers - Products that make money',
-      description: 'Discover hundreds of businesses, startups, and side projects that are making money online, and learn how they got to where they are today.',
+      title: t('incomeTrends.indieHackers'),
+      description: t('incomeTrends.indieHackersDescription'),
       image: '/indeshacks.png',
       href: 'https://www.indiehackers.com/products?category=ai&revenueVerification=stripe&sorting=highest-revenue'
     },
     {
-      title: 'Hugging Face: Most Downloaded & Liked Models',
-      description: 'We\'re on a journey to advance and democratize artificial intelligence through open source and open science.',
+      title: t('incomeTrends.huggingFace'),
+      description: t('incomeTrends.huggingFaceDescription'),
       image: '/huggingface.png',
       href: 'https://huggingface.co/models?sort=trending'
     },
     {
-      title: 'Google Trends: What\'s Hot in 2025',
-      description: 'Explore the latest trending searches with real-time insights. This page showcases what people are currently searching for, from breaking news to popular topics, updated dynamically. ',
+      title: t('incomeTrends.googleTrends'),
+      description: t('incomeTrends.googleTrendsDescription'),
       image: '/Google-trending-now.png',
       href: 'https://trends.google.com/trending?geo=US&hl=en-US'
     }
@@ -61,7 +60,7 @@ export default async function IncomeTrendsPage() {
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {pages.map((page, index) => (
-          <Link 
+          <a 
             key={index}
             href={page.href}
             target="_blank"
@@ -86,7 +85,7 @@ export default async function IncomeTrendsPage() {
                 {page.description}
               </p>
             </div>
-          </Link>
+          </a>
         ))}
       </div>
     </div>

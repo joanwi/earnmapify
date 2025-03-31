@@ -1,72 +1,17 @@
 {
-  "navigation": {
-    "moneyMakingSites": "Top Paid Sites",
-    "platformSubsites": "Top Platform Subs",
-    "categorySites": "Industry Leaders",
+  "nav": {
+    "topPaidSites": "Top Paid Sites",
+    "topPlatformSubs": "Top Platform Subs",
+    "industryLeaders": "Industry Leaders",
     "incomeTrends": "Income Trends"
-  },
-  "common": {
-    "updatedOn": "Updated on",
-    "downloadCSV": "Download as CSV",
-    "downloadPDF": "Download as PDF",
-    "searchPlaceholder": "Search...",
-    "filterBy": "Filter by",
-    "showingResults": "Showing {start}-{end} of {total} results",
-    "viewAll": "View All",
-    "topSites": "Top Sites",
-    "newSites": "New Sites",
-    "trendingSites": "Trending Sites",
-    "monthlyTraffic": "Monthly Traffic",
-    "trafficChange": "Traffic Change",
-    "rank": "Rank",
-    "createdOn": "Created on",
-    "visitDuration": "Visit Duration",
-    "loading": "Loading...",
-    "error": "Error loading data",
-    "noData": "No data available"
-  },
-  "home": {
-    "heroTitle": "EarnMapify - Discover Top High-Traffic Websites for Profit",
-    "heroDescription": "Discover top high-traffic websites on EarnMapify. Explore paid sites, platform subs, industry leaders, and income trends to find profitable opportunities now!",
-    "recentUpdates": "Recent Updates",
-    "exploreSections": "Explore Sections"
-  },
-  "moneyMakingSites": {
-    "loading": "Loading...",
-    "title": "Money Making Sites",
-    "description": "Discover high-traffic websites on paid platforms like PayPal and Stripe to maximize your revenue",
-    "dataSource": "Data source: Similarweb",
-    "updateFrequency": "Updated monthly",
-    "paypal": "PayPal",
-    "stripe": "Stripe",
-    "updatedOn": "Updated on"
-  },
-  "platformSubsites": {
-    "title": "Platform Subsites",
-    "description": "Explore high-traffic subdomains on GitHub and Vercel to boost your project’s growth and engagement.",
-    "selectPlatform": "Select Platform"
-  },
-  "categorySites": {
-    "title": "Category Sites",
-    "description": "Find the top 1000 websites in gaming, tools, and more, driving trends and innovation.  ",
-    "games": "Games",
-    "tools": "Tools"
-  },
-  "incomeTrends": {
-    "heroTitle": "2025 Income Trends: Revenue & Popularity Insights",
-    "heroDescription": "Explore 2025 income trends with top AI tools revenue from Toolify, Product Hunt leaderboard insights, and trending Hugging Face models."
-  },
-  "about": {
-    "title": "About This Project",
-    "description": "This website provides analytics and rankings for various types of websites to help you discover trends and opportunities."
   },
   "footer": {
     "aboutDescription": "We provide insights into high-traffic websites, helping you find profitable opportunities online with EarnMapify.",
     "quickLinks": "Quick Links",
-    "moneyMaking": "Top Paid Sites",
-    "platforms": "Top Platform Subs",
-    "categories": "Industry Leaders",
-    "info": "Income Trends",
+    "topPaidSites": "Top Paid Sites",
+    "topPlatformSubs": "Top Platform Subs",
+    "industryLeaders": "Industry Leaders",
+    "incomeTrends": "Income Trends",
     "resources": "Resources",
     "about": "About",
     "api": "API",
@@ -80,6 +25,137 @@
     "legal": "Legal",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
-    "cookies": "Cookie Policy"
+    "cookies": "Cookie Policy",
+    "rights": "All rights reserved"
+  },
+  "home": {
+    "heroTitle": "EarnMapify - Discover Top High-Traffic Websites for Profit",
+    "heroDescription": "Discover top high-traffic websites on EarnMapify. Explore paid sites, platform subs, industry leaders, and income trends to find profitable opportunities now!",
+    "paidSitesDescription": "Discover high-traffic websites on paid platforms like PayPal and Stripe to maximize your revenue",
+    "platformDescription": "Explore high-traffic subdomains on GitHub and Vercel to boost your project’s growth and engagement.",
+    "industryDescription": "Find the top 1000 websites in gaming, tools, and more, driving trends and innovation.",
+    "viewAll": "View All",
+    "latestData": "Latest Data",
+    "viewFullPage": "View Full Page",
+    "recentUpdates": "Recent Updates",
+    "updatedOn": "Updated on"
+  },
+  "paidSites": {
+    "heroTitle": "Top Paid Sites",
+    "heroDescription": "Discover high-traffic websites in payment platforms like PayPal and Stripe"
+  },
+  "paidTable": {
+    "newly": "Newly Discovered",
+    "trending": "Trending Websites",
+    "domain": "Domain",
+    "industry": "Industry",
+    "globalRank": "Global Rank",
+    "trafficShare": "Traffic Share",
+    "change": "Change",
+    "noDataFound": "No data found",
+    "previous": "Previous",
+    "next": "Next",
+    "showing": "Showing",
+    "to": "to",
+    "of": "of",
+    "results": "results"
+  },
+  "revenueCalculator": {
+    "revenueCalculator": "Revenue Calculator",  
+    "monthlyTraffic": "Monthly Traffic",
+    "trafficDescription": "The number of monthly visitors from the target website to the payment platform (such as Stripe/PayPal).(K: thousands, M: millions)",
+    "orderValue": "Average Order Value",
+    "orderValueDescription": "The typical price of the product/service on the pricing page of the target website (you can check the pricelist on the target website)",
+    "monthlyRevenue": "Estimated Monthly Revenue",
+    "revenueDescription": "This calculator can help estimate the potential monthly revenue of subscription/payment websites: ",
+    "note": "Note:",
+    "revenueNote": "The actual revenue may have some errors, such as unsuccessful payment or visitor cancellation; this data is for reference only, if you have any questions, please feel free to leave a message to communicate.",
+    "revenueFormula": "Formula: Monthly Payment Page Visitors × Average Order Value"
+  },
+  "platformSubs": {
+    "heroTitle": "Top Platform Subdomains",
+    "heroDescription": "Discover high-traffic subdomains across popular hosting platforms"
+  },
+  "platformTable": {
+    "trending": "Trending",
+    "newClicks": "New Clicks",
+    "clicks": "Clicks",
+    "change": "Change",
+    "topKeyword": "Top Keyword",
+    "googleSERP": "Go to Google SERP for the keyword"
+  },
+  "industryLeaders": {
+    "heroTitle": "Industry Leaders",
+    "heroDescription": "Discover top performing websites in games and tools categories"
+  },
+  "industryLeadersTable": {
+    "games": "Games",
+    "tools": "Tools",
+    "domain": "Domain",
+    "trafficShare": "Traffic Share",
+    "momChange": "MoM Change",
+    "countryRank": "Country Rank",
+    "monthlyVisits": "Monthly Visits",
+    "uniqueVisitors": "Unique Visits",
+    "desktop": "Desktop",
+    "mobile": "Mobile",
+    "showing": "Showing",
+    "to": "to",
+    "of": "of",
+    "results": "results"
+  },
+  "adCalculator": {
+    "title": "Monthly Ad Revenue Calculator",
+    "monthlyVisits": "Monthly Visits(Unique Visitors)",
+    "pagesPerVisit": "Pages per Visit(Average)",
+    "adPerPage": "Ads per Page(AD units displayed per page)",  
+    "cpm": "CPM ($)",
+    "reference": "Here are some rough reference ranges, US: $5 - $10 ; Canada: $4 - $8; UK: $4 - $8; Australia: $4 - $8; Germany: $3 - $7; France: $3 - $6; Japan: $2 - $5; India: $0.5 - $2; Brazil: $0.5 - $2; China: $0.5 - $2.",
+    "estimatedRevenue": "Estimated Monthly Ad Revenue: ",
+    "note": "Note:",
+    "adNote": "Actual CPM based on your website content, audience, and ad types. For accurate data, use Google AdSense reporting tools.",
+    "formula": "Formula:",
+    "formula2": "Monthly Visits  × Pages per Visit× Ads per Page × CPM ÷ 1000"
+    
+  },  
+  "incomeTrends": {
+    "heroTitle": "2025 Income Trends: Revenue & Popularity Insights",
+    "heroDescription": "Explore 2025 income trends with top AI tools revenue from Toolify, Product Hunt leaderboard insights, and trending Hugging Face models.",
+    "toolify": "Toolify: Best AI Tools Revenue Insights",
+    "toolifyDescription": "AI High Revenue Ranking based on AI website rankings on payment platforms and actual monthly traffic to the website.",
+    "productHunt": "Product Hunt: Monthly & Weekly Leaderboard Trends",
+    "productHuntDescription": "Product Hunt is a curation of the best new products, every day. Discover the latest mobile apps, websites, and technology products that everyone's talking about.",
+    "indieHackers": "Indie Hackers - Products that make money",
+    "indieHackersDescription": "Discover hundreds of businesses, startups, and side projects that are making money online, and learn how they got to where they are today.",
+    "huggingFace": "Hugging Face: Most Downloaded & Liked Models",
+    "huggingFaceDescription": "We're on a journey to advance and democratize artificial intelligence through open source and open science.",
+    "googleTrends": "Google Trends: What's Hot in 2025",
+    "googleTrendsDescription": "Explore the latest trending searches with real-time insights. This page showcases what people are currently searching for, from breaking news to popular topics, updated dynamically."
+  },
+  "about": {
+    "h1": "About Us",
+    "p1": "Welcome to EarnMapify, your comprehensive guide to understanding and tracking the most successful online businesses and income opportunities. Our platform provides detailed insights into various monetization strategies and success patterns across different industries.",
+    "dataSources": {
+      "title": "Data Sources",
+      "description": "The data presented on this website is gathered from multiple sources:",
+      "sources": {
+        "similarweb": "Similarweb for traffic and analytics data",
+        "public": "Public from platforms like GitHub, Product Hunt, and more"
+      }
+    },
+    "updateFrequency": {
+      "title": "Update Frequency",
+      "description": "Our data is updated according to the following schedule:",
+      "items": {
+        "topPaidSites": "Top Paid Sites: Monthly",
+        "platformSubsites": "Top Platform Subsites: Monthly",
+        "industryLeaders": "Industry Leaders: Monthly",
+        "infoTrends": "Info & Trends: Weekly"
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "For questions, suggestions, or data corrections, please contact us at:"
+    }
   }
 } 

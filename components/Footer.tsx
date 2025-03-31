@@ -1,15 +1,9 @@
-import Link from 'next/link';
-import { getLocale, getTranslations } from 'next-intl/server';
+import { Link } from '@/i18n/navigation';
+import { getTranslations } from 'next-intl/server';
 
 
 export default async function Footer() {
   const t = await getTranslations('footer');
-  const currentLocale = await getLocale();
-
-  // Helper function to generate correct localized URLs
-  const getLocalizedPath = (path: string) => {
-    return currentLocale === 'en' ? path : `/${currentLocale}${path}`;
-  };
 
   return (
     <footer className="bg-white border-t">
@@ -17,8 +11,8 @@ export default async function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* About Us */}
           <div>
-          <Link 
-              href={currentLocale === 'en' ? '/' : `/${currentLocale}`}
+            <Link
+              href={'/'}
               className="flex-shrink-0 flex items-center text-blue-600 font-bold text-2xl"
             >
               EarnMapify
@@ -35,23 +29,23 @@ export default async function Footer() {
             </h3>
             <ul className="mt-4 space-y-4">
               <li>
-                <Link href={getLocalizedPath('/top-paid-sites')} className="text-base text-gray-500 hover:text-gray-900">
-                  {t('moneyMaking')}
+                <Link href={'/top-paid-sites'} className="text-base text-gray-500 hover:text-gray-900">
+                  {t('topPaidSites')}
                 </Link>
               </li>
               <li>
-                <Link href={getLocalizedPath('/top-platform-subs')} className="text-base text-gray-500 hover:text-gray-900">
-                  {t('platforms')}
+                <Link href={'/top-platform-subs'} className="text-base text-gray-500 hover:text-gray-900">
+                  {t('topPlatformSubs')}
                 </Link>
               </li>
               <li>
-                <Link href={getLocalizedPath('/industry-leaders')} className="text-base text-gray-500 hover:text-gray-900">
-                  {t('categories')}
+                <Link href={'/industry-leaders'} className="text-base text-gray-500 hover:text-gray-900">
+                  {t('industryLeaders')}
                 </Link>
               </li>
               <li>
-                <Link href={getLocalizedPath('/#')} className="text-base text-gray-500 hover:text-gray-900">
-                  {t('info')}
+                <Link href={'/#'} className="text-base text-gray-500 hover:text-gray-900">
+                  {t('incomeTrends')}
                 </Link>
               </li>
             </ul>
@@ -64,17 +58,17 @@ export default async function Footer() {
             </h3>
             <ul className="mt-4 space-y-4">
               <li>
-                <Link href={getLocalizedPath('/about')} className="text-base text-gray-500 hover:text-gray-900">
+                <Link href={'/about'} className="text-base text-gray-500 hover:text-gray-900">
                   {t('about')}
                 </Link>
               </li>
               <li>
-                <Link href={getLocalizedPath('/#')} className="text-base text-gray-500 hover:text-gray-900">
+                <Link href={'/#'} className="text-base text-gray-500 hover:text-gray-900">
                   {t('api')}
                 </Link>
               </li>
               <li>
-                <Link href={getLocalizedPath('/#')} className="text-base text-gray-500 hover:text-gray-900">
+                <Link href={'/#'} className="text-base text-gray-500 hover:text-gray-900">
                   {t('documentation')}
                 </Link>
               </li>
@@ -123,17 +117,17 @@ export default async function Footer() {
             </h3>
             <ul className="mt-4 space-y-4">
               <li>
-                <Link href={getLocalizedPath('/#')} className="text-base text-gray-500 hover:text-gray-900">
+                <Link href={'/#'} className="text-base text-gray-500 hover:text-gray-900">
                   {t('privacy')}
                 </Link>
               </li>
               <li>
-                <Link href={getLocalizedPath('/#')} className="text-base text-gray-500 hover:text-gray-900">
+                <Link href={'/#'} className="text-base text-gray-500 hover:text-gray-900">
                   {t('terms')}
                 </Link>
               </li>
               <li>
-                <Link href={getLocalizedPath('/#')} className="text-base text-gray-500 hover:text-gray-900">
+                <Link href={'/#'} className="text-base text-gray-500 hover:text-gray-900">
                   {t('cookies')}
                 </Link>
               </li>
@@ -144,7 +138,7 @@ export default async function Footer() {
         {/* Copyright */}
         <div className="mt-8 border-t border-gray-200 pt-4">
           <p className="text-base text-gray-400 text-center">
-            © {new Date().getFullYear()} EarnMapify. All rights reserved.
+            © {new Date().getFullYear()} EarnMapify. {t('rights')}
           </p>
         </div>
       </div>
