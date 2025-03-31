@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
+import { setRequestLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -31,6 +32,7 @@ export default async function LocaleLayout({
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
+  setRequestLocale(locale);
   
   return (
     <html lang={locale}>
