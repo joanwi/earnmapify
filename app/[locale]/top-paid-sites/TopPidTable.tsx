@@ -10,7 +10,7 @@ interface MoneySitesTableProps {
 }
 
 export default function TopPidTable({ initialData }: MoneySitesTableProps) {
-  const t = useTranslations('paidTable');
+  const t = useTranslations("paidTable")
   const [moneyMakingSites] = useState<MoneyMakingSite[]>(initialData)
   const [data, setData] = useState<MoneyMakingSite[]>([])
   const [platform, setPlatform] = useState<string>("Stripe")
@@ -63,8 +63,12 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
       let valueA, valueB
 
       if (field === "traffic") {
-        valueA = Number.parseFloat(a.traffic)
-        valueB = Number.parseFloat(b.traffic)
+        valueA = Number.parseFloat(a.traffic.replace(/[^0-9.]/g, ""))
+        valueB = Number.parseFloat(b.traffic.replace(/[^0-9.]/g, ""))
+      } else if (field === "trafficShare") {
+        // Extract numeric values from trafficShare percentages
+        valueA = Number.parseFloat(a.trafficShare.replace(/[^0-9.]/g, ""))
+        valueB = Number.parseFloat(b.trafficShare.replace(/[^0-9.]/g, ""))
       } else if (field === "change") {
         // Special handling for "New" and percentage values
         if (a.change === "New" && b.change === "New") {
@@ -140,20 +144,20 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
 
   const getTrafficShareWidth = (trafficShare: string) => {
     try {
-      if (!trafficShare) return 0;
+      if (!trafficShare) return 0
 
-      const cleanValue = trafficShare.replace(/[^0-9.]/g, '');
-      
-      const value = parseFloat(cleanValue);
-      
+      const cleanValue = trafficShare.replace(/[^0-9.]/g, "")
+
+      const value = Number.parseFloat(cleanValue)
+
       if (isNaN(value)) {
-        console.error('无法解析trafficShare值:', trafficShare);
-        return 0;
+        console.error("无法解析trafficShare值:", trafficShare)
+        return 0
       }
-      return Math.max(0.5, Math.min(value, 100));
+      return Math.max(0.5, Math.min(value, 100))
     } catch (error) {
-      console.error('处理trafficShare时出错:', error);
-      return 0;
+      console.error("处理trafficShare时出错:", error)
+      return 0
     }
   }
 
@@ -245,7 +249,7 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
               setSortDirection("desc")
             }}
           >
-            {t('newly')}
+            {t("newly")}
           </button>
           <button
             className={`px-4 py-2 ${viewMode === "trending" ? "bg-blue-500 text-white" : "bg-white"}`}
@@ -255,7 +259,7 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
               setSortDirection("desc")
             }}
           >
-            {t('trending')}
+            {t("trending")}
           </button>
         </div>
       </div>
@@ -265,56 +269,50 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
         <table className="min-w-full bg-white border table-fixed">
           <thead>
             <tr className="bg-gray-100 border-b">
-              <th 
-                scope="col" 
-                className="px-6 py-3.5 text-left text-sm font-semibold text-gray-900 sm:pl-0 cursor-pointer"
-                style={{ width: '200px' }}
-                onClick={() => handleSort('domain')}
+              <th
+                scope="col"
+                className="px-6 py-3.5 text-left text-sm font-semibold text-gray-900 cursor-pointer"
+                style={{ width: "200px" }}
+                onClick={() => handleSort("domain")}
+              >
+                <div className="flex items-center">{t("domain")}</div>
+              </th>
+              <th
+                scope="col"
+                className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 cursor-pointer"
+                style={{ width: "150px" }}
+                onClick={() => handleSort("industry")}
+              >
+                <div className="flex items-center">{t("industry")}</div>
+              </th>
+              <th
+                scope="col"
+                className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 cursor-pointer"
+                style={{ width: "100px" }}
+                onClick={() => handleSort("globalRank")}
+              >
+                <div className="flex items-center">{t("globalRank")}</div>
+              </th>
+              <th
+                scope="col"
+                className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 cursor-pointer"
+                style={{ width: "250px" }}
+                onClick={() => handleSort("trafficShare")}
               >
                 <div className="flex items-center">
-                    {t('domain')}
+                  {t("trafficShare")}
+                  {getSortIcon("trafficShare")}
                 </div>
               </th>
-              <th 
-                scope="col" 
+              <th
+                scope="col"
                 className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 cursor-pointer"
-                style={{ width: '150px' }}
-                onClick={() => handleSort('industry')}
+                style={{ width: "100px" }}
+                onClick={() => handleSort("change")}
               >
                 <div className="flex items-center">
-                  {t('industry')}
-                </div>
-              </th>
-              <th 
-                scope="col" 
-                className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 cursor-pointer"
-                style={{ width: '100px' }}
-                onClick={() => handleSort('globalRank')}
-              >
-                <div className="flex items-center">
-                  {t('globalRank')}
-                </div>
-              </th>
-              <th 
-                scope="col" 
-                className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 cursor-pointer"
-                style={{ width: '250px' }}
-                onClick={() => handleSort('trafficShare')}
-              >
-                <div className="flex items-center">
-                  {t('trafficShare')}
-                  {getSortIcon('trafficShare')}
-                </div>
-              </th>
-              <th 
-                scope="col" 
-                className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 cursor-pointer"
-                style={{ width: '100px' }}
-                onClick={() => handleSort('change')}
-              >
-                <div className="flex items-center">
-                  {t('change')}
-                  {getSortIcon('change')}
+                  {t("change")}
+                  {getSortIcon("change")}
                 </div>
               </th>
             </tr>
@@ -323,39 +321,30 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
             {data.length === 0 ? (
               <tr>
                 <td colSpan={5} className="py-4 text-center text-sm text-gray-500">
-                  {t('noDataFound')}
+                  {t("noDataFound")}
                 </td>
               </tr>
             ) : (
               data.map((site) => (
                 <tr key={site._id}>
-                  <td 
-                    className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0 truncate" 
-                    style={{ width: '200px' }}
+                  <td
+                    className="whitespace-nowrap py-4 pl-6 pr-3 text-sm font-medium text-gray-900 truncate"
+                    style={{ width: "200px" }}
                   >
                     {site.domain}
                   </td>
-                  <td 
-                    className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 truncate" 
-                    style={{ width: '150px' }}
-                  >
-                    {site.industry || '-'}
+                  <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 truncate" style={{ width: "150px" }}>
+                    {site.industry || "-"}
                   </td>
-                  <td 
-                    className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 truncate" 
-                    style={{ width: '100px' }}
-                  >
-                    {site.globalRank ? `#${site.globalRank}` : '-'}
+                  <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 truncate" style={{ width: "100px" }}>
+                    {site.globalRank ? `#${site.globalRank}` : "-"}
                   </td>
-                  <td 
-                    className="whitespace-nowrap px-3 py-4 text-sm text-gray-500" 
-                    style={{ width: '250px' }}
-                  >
+                  <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500" style={{ width: "250px" }}>
                     <div className="flex items-center">
                       <span className="mr-2 truncate">{formatTraffic(site.traffic)}</span>
                       <div className="w-16 bg-gray-200 rounded-full h-2.5 shrink-0">
-                        <div 
-                          className="bg-blue-600 h-2.5 rounded-full" 
+                        <div
+                          className="bg-blue-600 h-2.5 rounded-full"
                           style={{ width: `${getTrafficShareWidth(site.trafficShare)}%` }}
                         ></div>
                       </div>
@@ -364,10 +353,7 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
                       </span>
                     </div>
                   </td>
-                  <td 
-                    className="whitespace-nowrap px-3 py-4 text-sm truncate" 
-                    style={{ width: '100px' }}
-                  >
+                  <td className="whitespace-nowrap px-3 py-4 text-sm truncate" style={{ width: "100px" }}>
                     {getChangeDisplay(site.change)}
                   </td>
                 </tr>
@@ -388,7 +374,7 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
                 currentPage === 1 ? "text-gray-300" : "text-gray-700 hover:bg-gray-50"
               }`}
             >
-              {t('previous')}
+              {t("previous")}
             </button>
             <button
               onClick={() => goToPage(currentPage + 1)}
@@ -397,15 +383,15 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
                 currentPage === totalPages ? "text-gray-300" : "text-gray-700 hover:bg-gray-50"
               }`}
             >
-              {t('next')}
+              {t("next")}
             </button>
           </div>
           <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
             <div>
               <p className="text-sm text-gray-700">
-                {t('showing')} <span className="font-medium">{(currentPage - 1) * itemsPerPage + 1}</span> {t('to')} {" "}
-                <span className="font-medium">{Math.min(currentPage * itemsPerPage, filteredData.length)}</span> {t('of')} {" "}
-                <span className="font-medium">{filteredData.length}</span> {t('results')}
+                {t("showing")} <span className="font-medium">{(currentPage - 1) * itemsPerPage + 1}</span> {t("to")}{" "}
+                <span className="font-medium">{Math.min(currentPage * itemsPerPage, filteredData.length)}</span>{" "}
+                {t("of")} <span className="font-medium">{filteredData.length}</span> {t("results")}
               </p>
             </div>
             <div>
@@ -417,7 +403,7 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
                     currentPage === 1 ? "text-gray-300" : "text-gray-400 hover:bg-gray-50"
                   }`}
                 >
-                  <span className="sr-only">{t('previous')}</span>
+                  <span className="sr-only">{t("previous")}</span>
                   <ChevronLeft className="h-5 w-5" aria-hidden="true" />
                 </button>
 
@@ -458,7 +444,7 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
                     currentPage === totalPages ? "text-gray-300" : "text-gray-400 hover:bg-gray-50"
                   }`}
                 >
-                  <span className="sr-only">{t('next')}</span>
+                  <span className="sr-only">{t("next")}</span>
                   <ChevronRight className="h-5 w-5" aria-hidden="true" />
                 </button>
               </nav>
@@ -468,4 +454,5 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
       )}
     </>
   )
-} 
+}
+
