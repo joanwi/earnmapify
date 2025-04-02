@@ -294,8 +294,8 @@ export default function PlatformSubsTable({ initialData }: PlatformSubsTableProp
       </div>
 
       {/* 数据表格 */}
-      <div>
-        <table className="w-full bg-white border table-fixed">
+      <div className="overflow-x-auto">
+        <table className="w-full bg-white border table-fixed min-w-[800px]">
           <thead>
             <tr className="bg-gray-100 border-b">
               <th className="w-1/4 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">URL</th>
