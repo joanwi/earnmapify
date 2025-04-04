@@ -1,6 +1,5 @@
 import IndustryLeadersTable from "./IndustryLeadersTable"
 import { getIndustryLeaders } from "@/lib/data"
-import ADCalculator from "./ADCalculator";
 import { Metadata } from 'next';
 import { getTranslations } from "next-intl/server";
 
@@ -18,8 +17,6 @@ export default async function IndustryLeaders() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h1 className="text-3xl font-bold my-2 text-center">{t('heroTitle')}</h1>
       <p className="text-gray-600 mb-2 text-center">{t('heroDescription')}</p>
-
-      <ADCalculator />
 
       <IndustryLeadersTable initialData={initialData} />
     </div>

@@ -137,6 +137,7 @@ export default async function Footer() {
 
         {/* Copyright */}
         <div className="mt-8 border-t border-gray-200 pt-4">
+          <p className='text-center text-gray-400'>{t('inspired')}</p>
           <p className="text-base text-gray-400 text-center">
             © {new Date().getFullYear()} EarnMapify. {t('rights')}
           </p>

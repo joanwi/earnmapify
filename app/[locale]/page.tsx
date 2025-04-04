@@ -1,6 +1,5 @@
 import { Link } from '@/i18n/navigation';
 import { getLocale, getTranslations } from 'next-intl/server';
-import ADCalculator from "./industry-leaders/ADCalculator"      
 import TopPidTable from "./top-paid-sites/TopPidTable";
 import PlatformSubsTable from "./top-platform-subs/PlatformSubsTable";
 import IndustryLeadersTable from "./industry-leaders/IndustryLeadersTable";   
@@ -64,10 +63,6 @@ export default async function HomePage() {
             {t('home.heroDescription')}
           </p>
         </div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ADCalculator />
       </div>
 
       {/* Section cards */}
