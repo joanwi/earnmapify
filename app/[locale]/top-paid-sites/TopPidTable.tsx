@@ -214,7 +214,7 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
       <div className="mb-2">
         <div className="inline-flex border rounded-md overflow-hidden">
           <button
-            className={`px-4 py-2 ${platform === "Stripe" ? "bg-blue-500 text-white" : "bg-white"}`}
+            className={`px-4 py-2 cursor-pointer hover:bg-blue-100 ${platform === "Stripe" ? "bg-blue-500 text-white" : "bg-white"}`}
             onClick={() => {
               setPlatform("Stripe")
               setViewMode("")
@@ -225,7 +225,7 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
             Stripe
           </button>
           <button
-            className={`px-4 py-2 ${platform === "PayPal" ? "bg-blue-500 text-white" : "bg-white"}`}
+            className={`px-4 py-2 cursor-pointer hover:bg-blue-100 ${platform === "PayPal" ? "bg-blue-500 text-white" : "bg-white"}`}
             onClick={() => {
               setPlatform("PayPal")
               setViewMode("")
@@ -242,7 +242,7 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
       <div className="flex justify-end mb-2">
         <div className="inline-flex border rounded-md overflow-hidden">
           <button
-            className={`px-4 py-2 ${viewMode === "newly" ? "bg-blue-500 text-white" : "bg-white"}`}
+            className={`px-4 py-2 cursor-pointer hover:bg-blue-100 ${viewMode === "newly" ? "bg-blue-500 text-white" : "bg-white"}`}
             onClick={() => {
               setViewMode("newly")
               setSortField("traffic")
@@ -252,7 +252,7 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
             {t("newly")}
           </button>
           <button
-            className={`px-4 py-2 ${viewMode === "trending" ? "bg-blue-500 text-white" : "bg-white"}`}
+            className={`px-4 py-2 cursor-pointer hover:bg-blue-100 ${viewMode === "trending" ? "bg-blue-500 text-white" : "bg-white"}`}
             onClick={() => {
               setViewMode("trending")
               setSortField("traffic")

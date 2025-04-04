@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react"
 import { ArrowDown, ArrowUp, ChevronDown, ChevronLeft, ChevronRight, ChevronUp, ExternalLink } from "lucide-react"
 import type { PlatformSubs } from "@/lib/types"
-import { getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
 interface PlatformSubsTableProps {
   initialData: PlatformSubs[]

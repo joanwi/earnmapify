@@ -135,11 +135,7 @@ export default async function HomePage() {
                 </svg>
                 <div>
                   <p className="text-sm font-medium text-gray-900">
-                    {t('home.updatedOn')}: {new Date().toLocaleDateString(currentLocale, {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    })}
+                     March 26, 2025
                   </p>
                   <p className="text-sm text-gray-600">
                     {t('nav.topPaidSites')} & {t('nav.topPlatformSubs')} {t('home.updatedOn').toLowerCase()}
