@@ -130,7 +130,7 @@ export default async function HomePage() {
                 </svg>
                 <div>
                   <p className="text-sm font-medium text-gray-900">
-                     March 26, 2025
+                     April 11, 2025
                   </p>
                   <p className="text-sm text-gray-600">
                     {t('nav.topPaidSites')} & {t('nav.topPlatformSubs')} {t('home.updatedOn').toLowerCase()}
