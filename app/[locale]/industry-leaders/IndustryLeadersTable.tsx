@@ -176,7 +176,7 @@ export default function IndustryLeadersTable({ initialData }: IndustryLeadersTab
         </div>
       </div>
 
-      {/* 数据表格 */}
+      {/* table */}
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white border table-fixed">
           <thead>

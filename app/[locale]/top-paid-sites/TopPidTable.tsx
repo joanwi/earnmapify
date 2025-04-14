@@ -125,13 +125,16 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
   }
 
   const formatTraffic = (traffic: string) => {
-    const value = Number.parseFloat(traffic)
+    // 移除所有逗号并转换为数字
+    const value = Number.parseFloat(traffic.replace(/,/g, ''))
+    if (isNaN(value)) return traffic
+    
     if (value >= 1000000) {
-      return (value / 1000000).toFixed(1) + "M"
+      return (value / 1000000).toFixed(2) + "M"
     } else if (value >= 1000) {
-      return (value / 1000).toFixed(1) + "K"
+      return (value / 1000).toFixed(2) + "K"
     }
-    return traffic
+    return value.toString()
   }
 
   const formatTrafficShare = (trafficShare: string) => {
@@ -266,50 +269,25 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
 
       {/* Data Table */}
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white border table-fixed">
+        <table className="w-full bg-white border table-fixed min-w-[800px]">
           <thead>
             <tr className="bg-gray-100 border-b">
-              <th
-                scope="col"
-                className="px-6 py-3.5 text-left text-sm font-semibold text-gray-900 cursor-pointer"
-                style={{ width: "200px" }}
-                onClick={() => handleSort("domain")}
-              >
-                <div className="flex items-center">{t("domain")}</div>
+              <th className="w-1/6 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                {t("domain")}
               </th>
-              <th
-                scope="col"
-                className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 cursor-pointer"
-                style={{ width: "150px" }}
-                onClick={() => handleSort("industry")}
-              >
-                <div className="flex items-center">{t("industry")}</div>
+              <th className="w-1/6 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                {t("industry")}
               </th>
-              <th
-                scope="col"
-                className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 cursor-pointer"
-                style={{ width: "100px" }}
-                onClick={() => handleSort("globalRank")}
-              >
-                <div className="flex items-center">{t("globalRank")}</div>
+              <th className="w-1/6 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                {t("globalRank")}
               </th>
-              <th
-                scope="col"
-                className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 cursor-pointer"
-                style={{ width: "250px" }}
-                onClick={() => handleSort("trafficShare")}
-              >
+              <th className="w-2/6 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer" onClick={() => handleSort("trafficShare")}>
                 <div className="flex items-center">
                   {t("trafficShare")}
                   {getSortIcon("trafficShare")}
                 </div>
               </th>
-              <th
-                scope="col"
-                className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 cursor-pointer"
-                style={{ width: "100px" }}
-                onClick={() => handleSort("change")}
-              >
+              <th className="w-1/6 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer" onClick={() => handleSort("change")}>
                 <div className="flex items-center">
                   {t("change")}
                   {getSortIcon("change")}
@@ -320,26 +298,17 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
           <tbody className="divide-y divide-gray-200">
             {data.length === 0 ? (
               <tr>
-                <td colSpan={5} className="py-4 text-center text-sm text-gray-500">
+                <td colSpan={5} className="px-6 py-4 text-center text-gray-500">
                   {t("noDataFound")}
                 </td>
               </tr>
             ) : (
               data.map((site) => (
-                <tr key={site._id}>
-                  <td
-                    className="whitespace-nowrap py-4 pl-6 pr-3 text-sm font-medium text-gray-900 truncate"
-                    style={{ width: "200px" }}
-                  >
-                    {site.domain}
-                  </td>
-                  <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 truncate" style={{ width: "150px" }}>
-                    {site.industry || "-"}
-                  </td>
-                  <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 truncate" style={{ width: "100px" }}>
-                    {site.globalRank ? `#${site.globalRank}` : "-"}
-                  </td>
-                  <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500" style={{ width: "250px" }}>
+                <tr key={site._id} className="hover:bg-gray-50">
+                  <td className="px-6 py-4 text-sm font-medium text-gray-900 truncate">{site.domain}</td>
+                  <td className="px-6 py-4 text-sm text-gray-500 truncate">{site.industry || "-"}</td>
+                  <td className="px-6 py-4 text-sm text-gray-500 truncate">{site.globalRank ? `#${site.globalRank}` : "-"}</td>
+                  <td className="px-6 py-4">
                     <div className="flex items-center">
                       <span className="mr-2 truncate">{formatTraffic(site.traffic)}</span>
                       <div className="w-16 bg-gray-200 rounded-full h-2.5 shrink-0">
@@ -353,9 +322,7 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
                       </span>
                     </div>
                   </td>
-                  <td className="whitespace-nowrap px-3 py-4 text-sm truncate" style={{ width: "100px" }}>
-                    {getChangeDisplay(site.change)}
-                  </td>
+                  <td className="px-6 py-4 text-sm">{getChangeDisplay(site.change)}</td>
                 </tr>
               ))
             )}
