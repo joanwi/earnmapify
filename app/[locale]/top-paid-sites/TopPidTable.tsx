@@ -272,7 +272,7 @@ export default function TopPidTable({ initialData }: MoneySitesTableProps) {
         <table className="w-full bg-white border table-fixed min-w-[800px]">
           <thead>
             <tr className="bg-gray-100 border-b">
-              <th className="w-1/6 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="w-2/6 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                 {t("domain")}
               </th>
               <th className="w-1/6 px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
