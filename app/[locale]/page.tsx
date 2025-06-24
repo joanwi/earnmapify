@@ -66,7 +66,7 @@ export default async function HomePage() {
       </div>
 
       {/* Section cards */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 mb-28">
         <div className="grid grid-cols-1 gap-8">
           {sections.map((section) => (
             <div key={section.id} className="grid grid-cols-1 lg:grid-cols-4 gap-6">
@@ -117,28 +117,6 @@ export default async function HomePage() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Recent updates section */}
-        <div className="mt-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('home.recentUpdates')}</h2>
-          <div className="bg-white border border-gray-200 rounded-lg shadow overflow-hidden">
-            <div className="p-6">
-              <div className="flex items-center">
-                <svg className="h-8 w-8 text-green-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <div>
-                  <p className="text-sm font-medium text-gray-900">
-                     April 11, 2025
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    {t('nav.topPaidSites')} & {t('nav.topPlatformSubs')} {t('home.updatedOn').toLowerCase()}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
