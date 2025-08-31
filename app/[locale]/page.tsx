@@ -5,6 +5,10 @@ import PlatformSubsTable from "./top-platform-subs/PlatformSubsTable";
 import IndustryLeadersTable from "./industry-leaders/IndustryLeadersTable";   
 import { getTopPaidSites, getPlatformData, getIndustryLeaders } from "@/lib/data";
 
+// 页面级缓存配置 - Next.js 会自动设置相应的缓存头
+export const revalidate = 43200; // 12小时重新验证，会设置 Cache-Control 头
+export const dynamic = 'force-cache'; // 强制缓存，优化 CDN 表现
+
 export default async function HomePage() {
   const t = await getTranslations();
   const currentLocale = await getLocale();

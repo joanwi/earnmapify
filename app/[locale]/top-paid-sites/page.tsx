@@ -3,6 +3,10 @@ import { getTopPaidSites } from "@/lib/data"
 import { getTranslations } from "next-intl/server";
 import { Metadata } from 'next';
 
+// 页面级缓存配置
+export const revalidate = 43200; // 12小时
+export const dynamic = 'force-cache';
+
 export const metadata: Metadata = {
   title: 'Top Paid Sites - High-Traffic Websites on PayPal & Stripe',
   description: 'Explore top paid sites with the highest traffic on platforms like PayPal and Stripe. Discover high-revenue websites with the best payment data now!',

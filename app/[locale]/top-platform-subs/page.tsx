@@ -3,6 +3,10 @@ import { getPlatformData } from "@/lib/data"
 import { Metadata } from 'next';
 import { getTranslations } from "next-intl/server";
 
+// 页面级缓存配置
+export const revalidate = 43200; // 12小时
+export const dynamic = 'force-cache';
+
 export const metadata: Metadata = {
   title: 'Top Platform Subs - High-Traffic Subdomains on GitHub & Vercel',
   description: 'Discover top platform subs on GitHub and Vercel driving high traffic. Unlock the best subdomains for growth and engagement in your next project!',
