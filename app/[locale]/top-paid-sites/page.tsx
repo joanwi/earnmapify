@@ -5,7 +5,7 @@ import { Metadata } from 'next';
 
 // 页面级缓存配置
 export const revalidate = 43200; // 12小时
-export const dynamic = 'force-static';
+export const dynamic = 'force-dynamic'; // 动态路由需要动态渲染
 
 export const metadata: Metadata = {
   title: 'Top Paid Sites - High-Traffic Websites on PayPal & Stripe',

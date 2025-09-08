@@ -7,7 +7,7 @@ import { getTopPaidSites, getPlatformData, getIndustryLeaders } from "@/lib/data
 
 // 页面级缓存配置 - Next.js 会自动设置相应的缓存头
 export const revalidate = 43200; // 12小时重新验证，会设置 Cache-Control 头
-export const dynamic = 'force-static'; // 强制静态生成，优化 CDN 表现
+export const dynamic = 'force-dynamic'; // 动态路由需要动态渲染
 
 export default async function HomePage() {
   const t = await getTranslations();
