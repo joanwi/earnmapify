@@ -1,18 +1,21 @@
 import TopPidTable from "./TopPidTable"
 import { getTopPaidSites } from "@/lib/data"
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Metadata } from 'next';
 
-// 页面级缓存配置
-export const revalidate = 43200; // 12小时
-export const dynamic = 'force-dynamic'; // 动态路由需要动态渲染
 
 export const metadata: Metadata = {
   title: 'Top Paid Sites - High-Traffic Websites on PayPal & Stripe',
   description: 'Explore top paid sites with the highest traffic on platforms like PayPal and Stripe. Discover high-revenue websites with the best payment data now!',
 };
 
-export default async function TopPaidSites() {
+export default async function TopPaidSites({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations('paidSites');
   const initialData = await getTopPaidSites();
   

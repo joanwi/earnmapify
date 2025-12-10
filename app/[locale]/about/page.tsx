@@ -1,7 +1,13 @@
-import { useTranslations } from 'next-intl';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 
-export default function AboutPage() {
-  const t = useTranslations('about');
+export default async function AboutPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations('about');
 
   return (
     <div className="bg-white py-8 px-4 sm:px-6 lg:px-8">

@@ -1,4 +1,4 @@
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
 import { Metadata } from 'next';
 
@@ -16,7 +16,13 @@ function getCurrentWeek() {
   return `${now.getFullYear()}/${weekNumber}`;
 }
 
-export default async function IncomeTrendsPage() {
+export default async function IncomeTrendsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations();
   const currentWeek = getCurrentWeek();
 

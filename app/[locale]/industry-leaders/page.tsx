@@ -1,11 +1,8 @@
 import IndustryLeadersTable from "./IndustryLeadersTable"
 import { getIndustryLeaders } from "@/lib/data"
 import { Metadata } from 'next';
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
-// 页面级缓存配置
-export const revalidate = 43200; // 12小时
-export const dynamic = 'force-dynamic'; // 动态路由需要动态渲染
 
 export const metadata: Metadata = {
   title: 'Top 1000 Industry Leaders - Best Websites in Gaming & Tools',
@@ -13,7 +10,13 @@ export const metadata: Metadata = {
 };
 
 
-export default async function IndustryLeaders() {
+export default async function IndustryLeaders({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations('industryLeaders');
   const initialData = await getIndustryLeaders();
 

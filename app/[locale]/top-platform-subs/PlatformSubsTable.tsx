@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { ArrowDown, ArrowUp, ChevronDown, ChevronLeft, ChevronRight, ChevronUp, ExternalLink } from "lucide-react"
 import type { PlatformSubs } from "@/lib/types"
 import { useTranslations } from "next-intl";
@@ -20,76 +20,8 @@ export default function PlatformSubsTable({ initialData }: PlatformSubsTableProp
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("desc")
   const itemsPerPage = 20
 
-  // 初始化数据
-  useEffect(() => {
-    filterData(platform, viewMode)
-  }, [platform, viewMode, platformSubs])
-
-  // 更新分页数据
-  useEffect(() => {
-    const sorted = sortData([...filteredData], sortField, sortDirection)
-    const startIndex = (currentPage - 1) * itemsPerPage
-    const endIndex = startIndex + itemsPerPage
-    setData(sorted.slice(startIndex, endIndex))
-  }, [currentPage, filteredData, sortField, sortDirection])
-
-  // 格式化点击量
-  const formatClicks = (clicks: number | string | undefined) => {
-    if (clicks === undefined) return "0"
-    // 移除所有逗号并转换为数字
-    const numClicks = typeof clicks === 'number'
-      ? clicks
-      : parseInt(String(clicks || '0').replace(/,/g, ''))
-    if (numClicks >= 1000000) return (numClicks / 1000000).toFixed(1) + "M"
-    if (numClicks >= 1000) return (numClicks / 1000).toFixed(1) + "K"
-    return numClicks.toString()
-  }
-
-  // 获取进度条宽度百分比
-  const getWidthPercentage = (trafficShare: string | undefined) => {
-    try {
-      if (!trafficShare) return 0;
-      const cleanValue = trafficShare.replace(/[^0-9.]/g, '');       // 移除所有非数字和小数点字符
-
-      const value = parseFloat(cleanValue);      // 解析为浮点数
-      // 数值检查
-      if (isNaN(value)) {
-        console.error('无法解析trafficShare值:', trafficShare);
-        return 0;
-      }
-      // 确保至少有0.5%的宽度，最大100%
-      return Math.max(0.5, Math.min(value, 100));
-    } catch (error) {
-      console.error('处理trafficShare时出错:', error);
-      return 0;
-    }
-  }
-
-  // 数据过滤函数
-  const filterData = (selectedPlatform: string, selectedViewMode: string) => {
-    let filtered = [...platformSubs].filter((item) => item.platform === selectedPlatform)
-
-    if (selectedViewMode === "trending") {
-      filtered = filtered.filter((item) => {
-        if (!item.change) return false
-        const changeValue = item.change.replace("%", "")
-        return !isNaN(Number.parseFloat(changeValue)) && Number.parseFloat(changeValue) > 10
-      })
-    } else if (selectedViewMode === "new") {
-      filtered = filtered.filter((item) => (item.change || '') === "New")
-    }
-
-    setFilteredData(filtered)
-    setCurrentPage(1)
-    setSortField("clicks")
-    setSortDirection("desc")
-
-    const sorted = sortData(filtered, "clicks", "desc")
-    setData(sorted.slice(0, itemsPerPage))
-  }
-
   // 数据排序函数
-  const sortData = (data: PlatformSubs[], field: string, direction: "asc" | "desc") => {
+  const sortData = useCallback((data: PlatformSubs[], field: string, direction: "asc" | "desc") => {
     return [...data].sort((a, b) => {
       let valueA: number, valueB: number
 
@@ -131,7 +63,76 @@ export default function PlatformSubsTable({ initialData }: PlatformSubsTableProp
 
       return direction === "asc" ? valueA - valueB : valueB - valueA
     })
+  }, [])
+
+  // 数据过滤函数
+  const filterData = useCallback((selectedPlatform: string, selectedViewMode: string) => {
+    let filtered = [...platformSubs].filter((item) => item.platform === selectedPlatform)
+
+    if (selectedViewMode === "trending") {
+      filtered = filtered.filter((item) => {
+        if (!item.change) return false
+        const changeValue = item.change.replace("%", "")
+        return !isNaN(Number.parseFloat(changeValue)) && Number.parseFloat(changeValue) > 10
+      })
+    } else if (selectedViewMode === "new") {
+      filtered = filtered.filter((item) => (item.change || '') === "New")
+    }
+
+    setFilteredData(filtered)
+    setCurrentPage(1)
+    setSortField("clicks")
+    setSortDirection("desc")
+
+    const sorted = sortData(filtered, "clicks", "desc")
+    setData(sorted.slice(0, itemsPerPage))
+  }, [platformSubs, sortData])
+
+  // 初始化数据
+  useEffect(() => {
+    filterData(platform, viewMode)
+  }, [platform, viewMode, filterData])
+
+  // 更新分页数据
+  useEffect(() => {
+    const sorted = sortData([...filteredData], sortField, sortDirection)
+    const startIndex = (currentPage - 1) * itemsPerPage
+    const endIndex = startIndex + itemsPerPage
+    setData(sorted.slice(startIndex, endIndex))
+  }, [currentPage, filteredData, sortField, sortDirection])
+
+  // 格式化点击量
+  const formatClicks = (clicks: number | string | undefined) => {
+    if (clicks === undefined) return "0"
+    // 移除所有逗号并转换为数字
+    const numClicks = typeof clicks === 'number'
+      ? clicks
+      : parseInt(String(clicks || '0').replace(/,/g, ''))
+    if (numClicks >= 1000000) return (numClicks / 1000000).toFixed(1) + "M"
+    if (numClicks >= 1000) return (numClicks / 1000).toFixed(1) + "K"
+    return numClicks.toString()
   }
+
+  // 获取进度条宽度百分比
+  const getWidthPercentage = (trafficShare: string | undefined) => {
+    try {
+      if (!trafficShare) return 0;
+      const cleanValue = trafficShare.replace(/[^0-9.]/g, '');       // 移除所有非数字和小数点字符
+
+      const value = parseFloat(cleanValue);      // 解析为浮点数
+      // 数值检查
+      if (isNaN(value)) {
+        console.error('无法解析trafficShare值:', trafficShare);
+        return 0;
+      }
+      // 确保至少有0.5%的宽度，最大100%
+      return Math.max(0.5, Math.min(value, 100));
+    } catch (error) {
+      console.error('处理trafficShare时出错:', error);
+      return 0;
+    }
+  }
+
 
   // 处理排序
   const handleSort = (field: string) => {

@@ -1,17 +1,19 @@
 import { Link } from '@/i18n/navigation';
-import { getLocale, getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import TopPidTable from "./top-paid-sites/TopPidTable";
 import PlatformSubsTable from "./top-platform-subs/PlatformSubsTable";
 import IndustryLeadersTable from "./industry-leaders/IndustryLeadersTable";   
 import { getTopPaidSites, getPlatformData, getIndustryLeaders } from "@/lib/data";
 
-// 页面级缓存配置 - Next.js 会自动设置相应的缓存头
-export const revalidate = 43200; // 12小时重新验证，会设置 Cache-Control 头
-export const dynamic = 'force-dynamic'; // 动态路由需要动态渲染
 
-export default async function HomePage() {
+export default async function HomePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   const t = await getTranslations();
-  const currentLocale = await getLocale();
 
   const [moneySites, platformSubs, industryLeaders] = await Promise.all([
     getTopPaidSites(),
